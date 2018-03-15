@@ -1,6 +1,10 @@
 @font-face {
-    font-family: 'roboto';
+    font-family: 'roboto-bold';
     src: url('./roboto/Roboto-Bold.ttf');
+}
+@font-face {
+    font-family: 'roboto';
+    src: url('./roboto/Roboto-Regular.ttf');
 }
 #logo{
     position:relative;
@@ -15,13 +19,33 @@ body, html{
 }
 .section{
     color:white;
+    background-color: grey;
 }
 #leftside{
     width:200px;
+    font-size:0;
 }
-#tag{
-    height: 30px;
+i{
+    padding-top:4px;
+    width:auto;
+}
+.sectiontext{
+    margin-top:5px;
+    font-size:16px;
+}
+#sectionfield{
+    height: 35px;
     background-color:#525459;
-    padding:auto;
+    font-family: roboto-bold;
+    margin-left: 0;
+}
+.file{
+    margin-left : 35px!important;
+}
+.sectioncontent{
+    display:flex;
+    cursor: pointer;
     font-family: roboto;
+    height: 30px;
+    margin-left:17px;
 }
