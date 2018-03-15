@@ -22,6 +22,7 @@ def db(f):
 
         c, dict_c, conn = connect()
         rv = f(*a, **kw)
+        conn.commit()
         conn.close()
         return rv
     
@@ -57,9 +58,29 @@ def login():
 @app.route('/register', methods=["POST"])
 @db
 def register():
-    uname = request.form['uname']
-    email = request.form['email']
+    uname = es(request.form['uname'])
+    email = es(request.form['email'])
     passwd = request.form['passwd']
+
+    x = c.execute('select id from users where uname = "{}"'.format(
+        uname
+    ))
+
+    if int(x):
+        return jsonify(code="2", error="Username already taken")
+    
+    x = c.execute('select id from users where email = "{}"'.format(
+        email
+    ))
+
+    if int(x):
+        return jsonify(code="2", error="Email already taken")
+    
+    c.execute('insert into users (uname, email, passwd) values ("{0}", "{1}", "{2}")'.format(
+        uname,
+        email,
+        es(sha256.encrypt(passwd))
+    ))
 
     return jsonify(code="1")
     

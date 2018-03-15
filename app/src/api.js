@@ -10,13 +10,13 @@ export default {
         if (resp.code === "1") {
             sessionStorage.setItem('uid', resp.id)
             sessionStorage.setItem('logged_in', true)
-            success()
+            success(resp)
         } else {
-            error()
+            error(resp)
         }
     }),
 
-    register: (data) => fetch(
+    register: (data, success, error) => fetch(
         'http://project-hogwarts.ht.cloudbalkan.com/login',
         {
             method: "POST",
@@ -25,9 +25,9 @@ export default {
         }
     ).then(resp => resp.json()).then(resp => {
         if (resp.code === "1") {
-            success()
+            success(resp)
         } else {
-            error()
+            error(resp)
         }
     })
 }
