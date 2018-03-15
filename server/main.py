@@ -40,7 +40,7 @@ def login():
     uname = request.form['uname']
     passwd = request.form['passwd']
 
-    x = dict_c.execute('select passwd from users where email = {0} or uname = {0}'.format(
+    x = dict_c.execute('select passwd from users where email = "{0}" or uname = "{0}"'.format(
         es(uname)
     ))
 
