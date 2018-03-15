@@ -35,12 +35,16 @@ export default class Register extends React.Component {
     }
 
     render() {
+        if (this.state.regsitered) {
+            return <Redirect to='/login' />
+        }
         return (
             <form action="/register" method="post" onSubmit={this.onSubmit}>
                 <input type="text" name="uname" placeholder="Username" />
                 <input type="email" name="email" placeholder="E-mail" />
                 <input type="password" name="passwd" placeholder="Password" onInput={this.state.onInput} />
                 <input type="password" placeholder="Password" pattern={this.state.passwd} />
+                <input type="submit" value="Submit" />
             </form>
         )
     }
