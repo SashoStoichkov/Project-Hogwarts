@@ -1,10 +1,11 @@
 import React from 'react'
 
+import Textfield from './Components/Textfield.jsx'
 
 export default class App extends React.Component {
     render() {
         return (
-            <p>Hi!</p>
+            <Textfield holder="Asd"/>
         );
     }
 }
