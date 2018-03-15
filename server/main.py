@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template, jsonify
+from flask_cors import CORS
 
 from dbconnect import connect
 from MySQLdb import escape_string
