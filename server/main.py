@@ -32,7 +32,7 @@ def es(s):
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    return "<h1>We're still developing</h1>"
 
 @app.route('/login', methods=["POST"])
 @db
