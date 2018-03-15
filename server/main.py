@@ -40,7 +40,7 @@ def login():
     uname = request.form['uname']
     passwd = request.form['passwd']
 
-    x = dict_c.execute('select passwd from users where email = {} or uname = {}'.format(
+    x = dict_c.execute('select passwd from users where email = {0} or uname = {0}'.format(
         es(uname)
     ))
 
@@ -59,6 +59,9 @@ def login():
 def register():
     uname = request.form['uname']
     email = request.form['email']
+    passwd = request.form['passwd']
+
+    return jsonify(code="1")
     
 
 if __name__ == "__main__":

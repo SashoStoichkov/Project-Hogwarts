@@ -3,13 +3,21 @@ export default {
         'http://project-hogwarts.ht.cloudbalkan.com/login',
         {
             method: 'POST',
-            body: data
+            body: data,
+            mode: 'cors'
         }
     ).then(resp => {
-        print(resp)
+        console.log(resp)
     }),
 
     register: (data) => fetch(
-        'http://project-hogwarts.ht.cloudbalkan.com/login'
-    )
+        'http://project-hogwarts.ht.cloudbalkan.com/login',
+        {
+            method: "POST",
+            body: data,
+            mode: 'cors'
+        }
+    ).then(resp => {
+        console.log(resp)
+    })
 }
