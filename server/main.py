@@ -47,7 +47,10 @@ def login():
     if int(x):
         return jsonify(code="2", error="No such email or username")
     
-    fetched_info = DotMap(dict_c.fetchone())
+    a = dict_c.fetchone()
+    print(a)
+
+    fetched_info = DotMap(a)
 
     if not sha256.verify(passwd, fetched_info.passwd):
         return jsonify(code='3', error="Invalid password")
