@@ -44,7 +44,7 @@ def login():
         es(uname)
     ))
 
-    if int(x):
+    if int(x) == 0:
         return jsonify(code="2", error="No such email or username")
     
     fetched_info = DotMap(dict_c.fetchone())
