@@ -6,8 +6,14 @@ export default {
             body: data,
             mode: 'cors'
         }
-    ).then(resp => {
-        console.log(resp)
+    ).then(resp => resp.json()).then(resp => {
+        if (resp.code === "1") {
+            sessionStorage.setItem('uid', resp.id)
+            sessionStorage.setItem('logged_in', true)
+            success()
+        } else {
+            error()
+        }
     }),
 
     register: (data) => fetch(
@@ -17,7 +23,11 @@ export default {
             body: data,
             mode: 'cors'
         }
-    ).then(resp => {
-        console.log(resp)
+    ).then(resp => resp.json()).then(resp => {
+        if (resp.code === "1") {
+            success()
+        } else {
+            error()
+        }
     })
 }
