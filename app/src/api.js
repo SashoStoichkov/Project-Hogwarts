@@ -17,7 +17,7 @@ export default {
     }),
 
     register: (data, success, error) => fetch(
-        'http://project-hogwarts.ht.cloudbalkan.com/login',
+        'http://project-hogwarts.ht.cloudbalkan.com/register',
         {
             method: "POST",
             body: data,
