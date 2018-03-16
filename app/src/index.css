@@ -19,17 +19,23 @@ body, html{
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
+    font-family: roboto;
     overflow:hidden;
 }
 .section{
     color:white;
     background-color: #696c72;
     height: 100vh;
-    overflow:scroll;
 
 }
 #leftside{
     width:200px;
+    font-size:0;
+    float:left;
+    
+}
+#rightside{
+    width:100%;
     font-size:0;
     
 }
@@ -85,4 +91,8 @@ i{
 .navbar a:hover {
     background-color: grey;
     color: black;
+}
+#brace-editor{
+    width:initial!important;
+    height:calc(100vh - 50px)!important;
 }
