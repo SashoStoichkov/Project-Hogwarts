@@ -79,13 +79,16 @@ export default class Index extends React.Component {
     render() {
         const open_files = []
         for (var i of this.state.open_files) {
-            open_files.push(<File text={i} />)
+            open_files.push(<File text={i} />, <i className="clear material-icons">clear</i>)
         }
         return (
             <div>
                 <NavBar>
                     <img src={logo} id="logo"  alt="logo" />
-                    {open_files}        
+                    <div style={{display: 'flex', marginTop : '10px'}}>
+                        {open_files}
+                       
+                    </div>     
                 </NavBar>
                 <div id="leftside">
                     <Section text="Project Hogwarts">
@@ -94,13 +97,13 @@ export default class Index extends React.Component {
                             <File onClick={this.double} text="index.html"/>
                                 <File onClick={this.double} text="index.js"/>
                                 <Folder text="app">
-                                    <File text="index.css"/>
+                                    <File onClick={this.double} text="index.css"/>
                                     <Folder text="app">
-                                        <File text="index.jsx"/>
+                                        <File onClick={this.double} text="index.jsx"/>
                                         <Folder text="app">
-                                            <File text="index.py"/>
+                                            <File  onClick={this.double} text="index.py"/>
                                             <Folder text="app">
-                                                <File text="index.html"/>
+                                                <File  onClick={this.double} text="index.c"/>
                                             </Folder>
                                         </Folder>
                                     </Folder>

@@ -14,10 +14,6 @@
     padding:0;
 }
 body, html{
-    background: url("https://www.bitdegree.org/tutorials/wp-content/uploads/2018/02/Sierra.jpg");
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
     margin: 0;
     font-family: roboto;
     overflow:hidden;
@@ -63,6 +59,9 @@ i{
     height: 30px;
     color:white;
     user-select:none;
+}
+.sectioncontent:hover, .folder:hover{
+    background-color:grey;
 }
 .folder{
     display:flex;
@@ -115,4 +114,11 @@ i{
 }
 .space{
     padding-left: 17px;
+    
+}
+.clear{
+    color:white;
+    cursor: pointer;
+    margin-top:3px;
+    font-size: 18px;
 }
