@@ -61,6 +61,7 @@ i{
     cursor: pointer;
     font-family: roboto;
     height: 30px;
+    color:white;
     user-select:none;
 }
 .folder{
@@ -114,8 +115,4 @@ i{
 }
 .space{
     padding-left: 17px;
-}
-
-.grid-description{
-    
 }
