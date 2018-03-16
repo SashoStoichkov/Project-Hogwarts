@@ -134,7 +134,7 @@ export default class Index extends React.Component {
                     </Section>
                 </div>
                 <div>
-                    <AceEditor />
+                    <AceEditor theme="monokai" />
                 </div>
             </div>
         );
