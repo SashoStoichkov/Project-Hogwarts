@@ -21,6 +21,17 @@ import 'brace/mode/javascript'
 
 import logo from '../Images/logo.png'
 
+Array.prototype.remove = function() {
+    var what, a = arguments, L = a.length, ax;
+    while (L && this.length) {
+        what = a[--L];
+        while ((ax = this.indexOf(what)) !== -1) {
+            this.splice(ax, 1);
+        }
+    }
+    return this;
+}
+
 export default class Index extends React.Component {
     constructor(props) {
         super(props)
@@ -36,6 +47,7 @@ export default class Index extends React.Component {
         this.updateCursor = this.updateCursor.bind(this)
         this.updateCode = this.updateCode.bind(this)
         this.double = this.double.bind(this)
+        this.remove_file = this.remove_file.bind(this)
     }
 
     updateCursor() {
@@ -76,19 +88,23 @@ export default class Index extends React.Component {
             }
         }
     }
+    remove_file(e) {
+        var new_open_files = this.state.open_files.remove(e.target.parentNode.children[0].children[1].innerHTML)
+        this.setState({
+            open_files: new_open_files
+        })
+    }
     render() {
         const open_files = []
         for (var i of this.state.open_files) {
-            open_files.push(<File text={i} />, <i className="clear material-icons">clear</i>)
+            open_files.push(<div style={{display: 'flex', marginTop : '10px'}}><File text={i} /><i className="clear material-icons" onClick={this.remove_file}>clear</i></div>)
         }
         return (
             <div>
                 <NavBar>
                     <img src={logo} id="logo"  alt="logo" />
-                    <div style={{display: 'flex', marginTop : '10px'}}>
-                        {open_files}
-                       
-                    </div>     
+                    {open_files}
+                          
                 </NavBar>
                 <div id="leftside">
                     <Section text="Project Hogwarts">
