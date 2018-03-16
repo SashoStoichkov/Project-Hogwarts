@@ -81,6 +81,7 @@ export default class LoginRegister extends React.Component {
                         <p className="text">you can login here.</p>
                         <button onClick={GotoLogin} className="btn">Login</button>
                     </div>
+                    <div className="free"></div>
                 </div>
             </div>
         );
