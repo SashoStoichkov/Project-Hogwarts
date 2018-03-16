@@ -5,6 +5,8 @@ import Section from '../Components/Section.jsx'
 import Folder from '../Components/Folder.jsx'
 import File from '../Components/File.jsx'
 
+
+
 export default class Index extends React.Component {
     render() {
         return (
@@ -14,7 +16,9 @@ export default class Index extends React.Component {
                     <Section text="Project Hogwarts">
                         <Folder text="app">
                             <File text="index.html"/>
+                            
                         </Folder>
+                        
                     </Section>
                 </div>
 

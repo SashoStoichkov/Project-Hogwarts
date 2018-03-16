@@ -23,7 +23,7 @@ body, html{
     background-color: #696c72;
     height: 100vh;
     overflow:scroll;
-    
+
 }
 #leftside{
     width:200px;
@@ -43,10 +43,19 @@ i{
     background-color:#525459;
     font-family: roboto-bold;
     margin-left: 0;
+    display:flex;
+    cursor: pointer;
 }
 .sectioncontent{
     display:flex;
     cursor: pointer;
     font-family: roboto;
     height: 30px;
+}
+.folder{
+    display:flex;
+    cursor: pointer;
+    font-family: roboto;
+    height: 30px;
+ 
 }
