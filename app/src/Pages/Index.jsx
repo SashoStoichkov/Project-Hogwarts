@@ -22,6 +22,40 @@ import 'brace/mode/javascript'
 import logo from '../Images/logo34.png'
 
 export default class Index extends React.Component {
+    constructor(props) {
+        super(props)
+        this.ws = io('http://project-hogwarts.ht.cloudbalkan.com/edit')
+        this.state = {
+            cursor_pos: {},
+            code: "",
+            file: ""
+        }
+
+        this.updateCode = this.updateCode.bind(this)
+        this.updateCursor = this.updateCursor.bind(this)
+        this.updateCode = this.updateCode.bind(this)
+    }
+
+    updateCursor() {
+        this.setState({
+            cursor_pos: this.refs.editor.editor.selection.getCursor()
+        })
+    }
+
+    updateCode(newCode) {
+        this.setState({
+            code: newCode
+        })
+    }
+
+    sendChanges() {
+        this.ws.emit('update', {
+            cursor_pos: this.state.cursor_pos,
+            code: this.state.code,
+            file: this.state.file
+        })
+    }
+
     render() {
         return (
             <div>
@@ -33,8 +67,8 @@ export default class Index extends React.Component {
                 <div id="leftside">
                     <Section text="Project Hogwarts">
                         <Folder text="app">
-                            <File text="index.html"/>
                             <Folder text="app">
+                            <File text=" index.html"/>
                                 <File text="index.js"/>
                                 <Folder text="app">
                                     <File text="index.css"/>
@@ -62,6 +96,10 @@ export default class Index extends React.Component {
                         tabSize={4}
                         enableBasicAutocompletion={true}
                         enableLiveAutocompletion={true}
+                        onChange={this.updateCode}
+                        onCursorChange={this.updateCursor}
+                        value={this.state.code}
+                        ref="editor"
                     />
                 </div>
             </div>
