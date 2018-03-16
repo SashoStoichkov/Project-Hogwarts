@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "proptypes": "^1.1.0",
+    "react-dnd": "^2.5.4",
+    "react-dnd-html5-backend": "^2.5.4"
+  }
+}

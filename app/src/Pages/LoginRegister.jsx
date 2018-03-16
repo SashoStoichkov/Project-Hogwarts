@@ -55,27 +55,27 @@ export default class LoginRegister extends React.Component {
                         <div className="free"></div>
                     </div>
                 </div>
-                <div id="register_permition">
-                    <div className="main_register">
-                        <div style={{width: "100%", height: "100%"}} className="card">
-                            <form action="/register" method="POST" onSubmit={this.register}>
-                                <div className="title">
-                                    Register
-                                </div>
-                                <div className="body">
-                                    <Textfield holder="Username" type="text" name="uname" />
-                                    <Textfield holder="E-Mail" type="email" name="email" />
-                                    <Textfield holder="Password" type="password" name="passwd" onInput={this.setPasswd} />
-                                    <Textfield holder="Confirm password" type="password" pattern={this.state.passwd} />
-                                </div>
-                            </form>
-                        </div>
-                        <div className="register">
-                            <p className="text">If you have registration</p>
-                            <p className="text">you can login here.</p>
-                            <button onClick={GotoLogin} className="btn">Login</button>
-                        </div>
-                        <div className="free"></div>
+            </div>
+            <div id="register_permition">
+                <div className="main_register">
+                    <div style={{width: "100%", height: "100%"}} className="card">
+                        <form action="/register" method="POST">
+                            <div className="title">
+                                Register
+                            </div>
+                            <div className="body">
+                                <Textfield holder="Username" type="text" />
+                                <Textfield holder="E-Mail" type="email" />
+                                <Textfield holder="Password" type="password" />
+                                <Textfield holder="Confirm password" type="password" />
+                                <button type="submit" className="submit btn">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div className="register">
+                        <p className="text">If you have registration</p>
+                        <p className="text">you can login here.</p>
+                        <button onClick={GotoLogin} className="btn">Login</button>
                     </div>
                 </div>
             </div>

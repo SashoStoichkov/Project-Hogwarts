@@ -27,10 +27,8 @@ body, html{
     background-color: #696c72;
     height: 100vh;
     overflow:auto;
-
 }
 #leftside{
-    width:200px;
     font-size:0;
     float:left;
     
@@ -47,6 +45,7 @@ i{
 .sectiontext{
     margin-top:5px;
     font-size:16px;
+    margin-right:20px;
 }
 #sectionfield{
     height: 35px;
@@ -115,4 +114,8 @@ i{
 }
 .space{
     padding-left: 17px;
+}
+
+.grid-description{
+    
 }
