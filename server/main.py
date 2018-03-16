@@ -10,6 +10,8 @@ import sqlite3
 
 from functools import wraps
 
+import os
+
 app = Flask(__name__)
 CORS(app)
 
@@ -99,6 +101,13 @@ def add_key():
     conn.commit()
 
     return redirect('/')
+
+@app.route('/get_filesystem/', methods=['POST'])
+def get_filesystem():
+    tree = {}
+    for path, dirnames, filenames in os.walk('project'):
+        #TODO make tree structure
+        pass
 
 if __name__ == "__main__":
     app.run(debug=True)
