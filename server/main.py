@@ -10,10 +10,16 @@ from passlib.hash import sha256_crypt as sha256
 
 from functools import wraps
 
+import sqlite3
+
 app = Flask(__name__)
 CORS(app)
+io = SocketIO(app)
 
 dict_c, c, conn = None, None, None
+
+mem_conn = sqlite3.connect(":memory:")
+mem_cur = mem_conn.cursor()
 
 def db(f):
     @wraps(f)
@@ -83,6 +89,9 @@ def register():
     ))
 
     return jsonify(code="1")
+
+@io.on('update', namespace='/edit')
+def update_file(data):
     
 
 if __name__ == "__main__":

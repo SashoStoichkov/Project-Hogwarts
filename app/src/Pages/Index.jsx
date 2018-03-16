@@ -22,6 +22,40 @@ import 'brace/mode/javascript'
 import logo from '../Images/logo.png'
 
 export default class Index extends React.Component {
+    constructor(props) {
+        super(props)
+        this.ws = io('http://project-hogwarts.ht.cloudbalkan.com/edit')
+        this.state = {
+            cursor_pos: {},
+            code: "",
+            file: ""
+        }
+
+        this.updateCode = this.updateCode.bind(this)
+        this.updateCursor = this.updateCursor.bind(this)
+        this.updateCode = this.updateCode.bind(this)
+    }
+
+    updateCursor() {
+        this.setState({
+            cursor_pos: this.refs.editor.editor.selection.getCursor()
+        })
+    }
+
+    updateCode(newCode) {
+        this.setState({
+            code: newCode
+        })
+    }
+
+    sendChanges() {
+        this.ws.emit('update', {
+            cursor_pos: this.state.cursor_pos,
+            code: this.state.code,
+            file: this.state.file
+        })
+    }
+
     render() {
         return (
             <div>
@@ -53,7 +87,6 @@ export default class Index extends React.Component {
                     </Section>
                 </div>
                 <div>
-<<<<<<< HEAD
                     <AceEditor 
                         mode="javascript"
                         theme="monokai"
@@ -63,10 +96,11 @@ export default class Index extends React.Component {
                         tabSize={4}
                         enableBasicAutocompletion={true}
                         enableLiveAutocompletion={true}
+                        onChange={this.updateCode}
+                        onCursorChange={this.updateCursor}
+                        value={this.state.code}
+                        ref="editor"
                     />
-=======
-                    <AceEditor theme="monokai" />
->>>>>>> b95a0bb15df91f70155d24f6252628c7cb4b7bb9
                 </div>
             </div>
         );
