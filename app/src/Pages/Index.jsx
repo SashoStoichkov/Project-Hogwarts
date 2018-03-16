@@ -17,6 +17,7 @@ import brace from 'brace'
 
 import 'brace/theme/monokai'
 import 'brace/mode/python'
+import 'brace/mode/javascript'
 
 import logo from '../Images/logo.png'
 
@@ -33,108 +34,35 @@ export default class Index extends React.Component {
                     <Section text="Project Hogwarts">
                         <Folder text="app">
                             <File text="index.html"/>
+                            <Folder text="app">
+                                <File text="index.html"/>
+                                <Folder text="app">
+                                    <File text="index.html"/>
+                                    <Folder text="app">
+                                        <File text="index.html"/>
+                                        <Folder text="app">
+                                            <File text="index.html"/>
+                                            <Folder text="app">
+                                                <File text="index.html"/>
+                                            </Folder>
+                                        </Folder>
+                                    </Folder>
+                                </Folder>
+                            </Folder>
                         </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder><Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder><Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder><Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        <Folder text="app">
-                            <File text="index.html"/>
-                        </Folder>
-                        
                     </Section>
                 </div>
                 <div>
-                    <AceEditor />
+                    <AceEditor 
+                        mode="javascript"
+                        theme="monokai"
+                        fontSize={18}
+                        showPrintMargin={false}
+                        highlightActiveLine={true}
+                        tabSize={4}
+                        enableBasicAutocompletion={true}
+                        enableLiveAutocompletion={true}
+                    />
                 </div>
             </div>
         );
