@@ -7,7 +7,7 @@ export default class File extends React.Component {
         return (
             <div className="sectioncontent space">
                 <i className={fileIcons.getClassWithColor(this.props.text)}>description</i>
-                <p className="sectiontext">{this.props.text}</p>
+                <p className="sectiontext"> {this.props.text}</p>
             </div>
         )
     }

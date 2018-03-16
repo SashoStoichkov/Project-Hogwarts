@@ -20,7 +20,6 @@ import 'brace/mode/python'
 
 import logo from '../Images/logo.png'
 
-import { DragSource } from 'react-dnd';
 
 export default class Description extends React.Component {
     render() {

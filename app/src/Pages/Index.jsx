@@ -33,8 +33,8 @@ export default class Index extends React.Component {
                 <div id="leftside">
                     <Section text="Project Hogwarts">
                         <Folder text="app">
-                            <File text="index.html"/>
                             <Folder text="app">
+                            <File text=" index.html"/>
                                 <File text="index.js"/>
                                 <Folder text="app">
                                     <File text="index.css"/>
