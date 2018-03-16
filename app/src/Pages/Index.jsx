@@ -18,7 +18,7 @@ import brace from 'brace'
 import 'brace/theme/monokai'
 import 'brace/mode/python'
 
-
+import logo from '../Images/logo_31.png'
 
 export default class Index extends React.Component {
     render() {
@@ -26,7 +26,7 @@ export default class Index extends React.Component {
             <div>
                 
                 <NavBar>
-                    <img src="https://static.interestingengineering.com/images/import/2016/09/BLUE-SKY.jpg" id="logo"  alt="logo" />
+                    <img src={logo} id="logo"  alt="logo" />
                     <Link to="#">LogIn/Register</Link>
                     <Link to="#">Link</Link>
                     <Link to="#">Link</Link>
