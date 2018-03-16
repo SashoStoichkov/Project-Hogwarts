@@ -14,9 +14,6 @@ export default class Index extends React.Component {
                     <Section text="Project Hogwarts">
                         <Folder text="app">
                             <File text="index.html"/>
-                            <Folder text="app">
-                                <File text="index.html"/>
-                            </Folder>
                         </Folder>
                     </Section>
                 </div>
