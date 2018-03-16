@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Textfield from './Components/Textfield.jsx'
+import LoginRegister from './Pages/LoginRegister.jsx'
 
 import Index from './Pages/Index.jsx'
 import Login from './Pages/Login.jsx'
