@@ -19,7 +19,7 @@ import 'brace/theme/monokai'
 import 'brace/mode/python'
 import 'brace/mode/javascript'
 
-import logo from '../Images/logo34.png'
+import logo from '../Images/logo.png'
 
 export default class Index extends React.Component {
     constructor(props) {
