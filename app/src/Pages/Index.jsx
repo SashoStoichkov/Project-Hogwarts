@@ -15,7 +15,7 @@ import io from 'socket.io-client'
 
 import brace from 'brace'
 
-import 'brace/themes/monokai'
+import 'brace/theme/monokai'
 import 'brace/mode/python'
 
 export default class Index extends React.Component {
@@ -38,10 +38,6 @@ export default class Index extends React.Component {
                         </Folder>
                     </Section>
                 </div>
-<<<<<<< HEAD
-=======
-                
->>>>>>> ceb6fae740e0617ac0b74e38015a9c987bb55bfe
             </div>
         );
     }

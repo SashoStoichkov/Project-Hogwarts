@@ -5,8 +5,9 @@
 }
 
 .title{
+    color: #444;
     width: 100%;
-    padding: 10px;
+    padding: 20px;
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -91,11 +92,9 @@
 }
 
 #login_permition{
-    display: initial;
-    
+    display: block;
 }
 
 #register_permition{
     display: none;
-
 }
