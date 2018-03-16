@@ -15,7 +15,7 @@ import io from 'socket.io-client'
 
 import brace from 'brace'
 
-import 'brace/themes/monokai'
+import 'brace/theme/monokai'
 import 'brace/mode/python'
 
 
