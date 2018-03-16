@@ -48,18 +48,21 @@ i{
     margin-left: 0;
     display:flex;
     cursor: pointer;
+    user-select:none;
 }
 .sectioncontent{
     display:flex;
     cursor: pointer;
     font-family: roboto;
     height: 30px;
+    user-select:none;
 }
 .folder{
     display:flex;
     cursor: pointer;
     font-family: roboto;
     height: 30px;
+    user-select:none;
  
 }
 /* Style the top navigation bar */
@@ -80,6 +83,6 @@ i{
 
 /* Change color on hover */
 .navbar a:hover {
-    background-color: #ddd;
+    background-color: grey;
     color: black;
 }

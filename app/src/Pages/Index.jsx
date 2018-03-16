@@ -32,6 +32,7 @@ export default class Index extends React.Component {
                     <Link to="#">Link</Link>
                     <Link to="#">For us</Link>                    
                 </NavBar>
+
                 <div id="leftside">
                     
                     <Section text="Project Hogwarts">

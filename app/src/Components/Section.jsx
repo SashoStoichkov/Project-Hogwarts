@@ -4,9 +4,9 @@ export default class Section extends React.Component {
     toggle(){
         this.setState({
             open: !this.state.open,
-            icon: "keyboard_arrow_down",
-
+            icon: this.state.icon == 'keyboard_arrow_right' ? 'keyboard_arrow_down' : 'keyboard_arrow_right',
         })
+        
     }
     constructor(props){
         super(props)
