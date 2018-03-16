@@ -26,6 +26,7 @@ body, html{
     color:white;
     background-color: #696c72;
     height: 100vh;
+    overflow:auto;
 
 }
 #leftside{
@@ -71,23 +72,21 @@ i{
     user-select:none;
  
 }
-/* Style the top navigation bar */
 .navbar {
     display: flex;
-    background-color: #333;
+    background-color: black;
     height: 50px;
     width: 100%;
-}
 
-/* Style the navigation bar links */
+}
 .navbar a {
     color: white;
     padding: 14px 20px;
     text-decoration: none;
     text-align: center;
-}
+    font-size:15px;
 
-/* Change color on hover */
+}
 .navbar a:hover {
     background-color: grey;
     color: black;
@@ -95,4 +94,22 @@ i{
 #brace-editor{
     width:initial!important;
     height:calc(100vh - 50px)!important;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #2196F3; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #1778c4; 
 }

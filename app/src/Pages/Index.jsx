@@ -18,27 +18,117 @@ import brace from 'brace'
 import 'brace/theme/monokai'
 import 'brace/mode/python'
 
-import logo from '../Images/logo_31.png'
+import logo from '../Images/logo.png'
 
 export default class Index extends React.Component {
     render() {
         return (
             <div>
-                
                 <NavBar>
                     <img src={logo} id="logo"  alt="logo" />
-                    <Link to="#">LogIn/Register</Link>
-                    <Link to="#">Link</Link>
-                    <Link to="#">Link</Link>
-                    <Link to="#">For us</Link>                    
+                    <Link to="#">LogIn/Register.jsx</Link>
+                    <Link to="#">Index.html</Link>                    
                 </NavBar>
-
                 <div id="leftside">
-                    
                     <Section text="Project Hogwarts">
                         <Folder text="app">
                             <File text="index.html"/>
-                            
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder><Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder><Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder><Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
+                        </Folder>
+                        <Folder text="app">
+                            <File text="index.html"/>
                         </Folder>
                         
                     </Section>
@@ -46,7 +136,6 @@ export default class Index extends React.Component {
                 <div>
                     <AceEditor />
                 </div>
-                
             </div>
         );
     }
