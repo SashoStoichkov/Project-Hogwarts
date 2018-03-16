@@ -6,7 +6,7 @@ import {GotoLogin, GotoRegister} from "../LoginRegister.js"
 export default class LoginRegister extends React.Component {
   render() {
     return (
-        <div>
+        <div id="center">
             <div id="login_permition">
                 <div className="main_login">
                     <div style={{width: "100%", height: "100%"}} className="card">
@@ -17,6 +17,7 @@ export default class LoginRegister extends React.Component {
                             <div className="body">
                                 <Textfield holder="E-Mail" type="email" />
                                 <Textfield holder="Password" type="password" />
+                                <button className="submit btn" type="submit">Login</button>
                             </div>
                         </form>
                     </div>
@@ -40,7 +41,9 @@ export default class LoginRegister extends React.Component {
                                 <Textfield holder="E-Mail" type="email" />
                                 <Textfield holder="Password" type="password" />
                                 <Textfield holder="Confirm password" type="password" />
+                                <button className="submit btn" type="submit">Register</button>
                             </div>
+                            
                         </form>
                     </div>
                     <div className="register">
