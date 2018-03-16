@@ -41,7 +41,7 @@ def login():
     uname = request.form['uname']
     passwd = request.form['passwd']
 
-    x = dict_c.execute('select passwd from users where email = "{0}" or uname = "{0}"'.format(
+    x = dict_c.execute('selecti id, passwd from users where email = "{0}" or uname = "{0}"'.format(
         es(uname)
     ))
 
@@ -53,7 +53,7 @@ def login():
     if not sha256.verify(passwd, fetched_info.passwd):
         return jsonify(code='3', error="Invalid password")
     
-    return jsonify(code="1")
+    return jsonify(code="1", id=fetched_info.id)
 
 @app.route('/register', methods=["POST"])
 @db
