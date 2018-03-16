@@ -18,7 +18,7 @@ import brace from 'brace'
 import 'brace/theme/monokai'
 import 'brace/mode/python'
 
-import logo from '../Images/logo_31.png'
+import logo from '../Images/logo.png'
 
 export default class Index extends React.Component {
     render() {
