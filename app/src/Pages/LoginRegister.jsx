@@ -54,7 +54,7 @@ export default class LoginRegister extends React.Component {
                             <button onClick={GotoRegister} className="btn">Register</button>
                         </div>
                         <div className="free"></div>
-                    </div>
+                    </div> 
                 </div>
                 <div id="register_permition">
                     <div className="main_register">
