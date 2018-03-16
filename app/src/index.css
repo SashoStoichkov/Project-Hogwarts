@@ -26,7 +26,7 @@ body, html{
     background-color: #696c72;
     height: 100vh;
     overflow:scroll;
-    
+
 }
 #leftside{
     width:200px;
@@ -46,12 +46,24 @@ i{
     background-color:#525459;
     font-family: roboto-bold;
     margin-left: 0;
+    display:flex;
+    cursor: pointer;
+    user-select:none;
 }
 .sectioncontent{
     display:flex;
     cursor: pointer;
     font-family: roboto;
     height: 30px;
+    user-select:none;
+}
+.folder{
+    display:flex;
+    cursor: pointer;
+    font-family: roboto;
+    height: 30px;
+    user-select:none;
+ 
 }
 /* Style the top navigation bar */
 .navbar {
@@ -71,6 +83,6 @@ i{
 
 /* Change color on hover */
 .navbar a:hover {
-    background-color: #ddd;
+    background-color: grey;
     color: black;
 }

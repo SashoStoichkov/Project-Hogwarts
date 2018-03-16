@@ -1,14 +1,30 @@
 import React from 'react'
 
 export default class Folder extends React.Component {
-    render() {
+    toggle(){
+        this.setState({
+            open: !this.state.open,
+            icon: this.state.icon == 'keyboard_arrow_right' ? 'keyboard_arrow_down' : 'keyboard_arrow_right',
+        })
+    }
+    constructor(props){
+        super(props)
+        this.state={
+            open: false,
+            icon: "keyboard_arrow_right",
+        }
+        this.toggle = this.toggle.bind(this)
+    }
+    render() {       
         return (
             <div>
-                <div className="sectioncontent">
-                    <i class="material-icons">keyboard_arrow_right</i>
+                <div onClick={this.toggle} className="folder">
+                    <i className="material-icons">{this.state.icon}</i>
                     <p className="sectiontext">{this.props.text}</p>
                 </div>
-                {this.props.children}
+                {this.state.open && 
+                    this.props.children
+                }
             </div>
         )
     }
