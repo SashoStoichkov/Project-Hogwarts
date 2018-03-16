@@ -22,6 +22,8 @@ body, html{
     color:white;
     background-color: #696c72;
     height: 100vh;
+    overflow:scroll;
+    
 }
 #leftside{
     width:200px;
