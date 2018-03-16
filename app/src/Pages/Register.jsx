@@ -18,6 +18,7 @@ export default class Register extends React.Component {
     }
 
     onInput(e) {
+        console.log(e.target.value)
         this.setState({
             passwd: e.target.value
         })
@@ -25,9 +26,10 @@ export default class Register extends React.Component {
 
     onSubmit(e) {
         e.preventDefault()
+        const comp = this
         api.register(
             new FormData(e.target), 
-            () => this.setState({
+            () => comp.setState({
                 regsitered: true
             }), 
             data => alert(data.error)
@@ -42,7 +44,7 @@ export default class Register extends React.Component {
             <form action="/register" method="post" onSubmit={this.onSubmit}>
                 <input type="text" name="uname" placeholder="Username" />
                 <input type="email" name="email" placeholder="E-mail" />
-                <input type="password" name="passwd" placeholder="Password" onInput={this.state.onInput} />
+                <input type="password" name="passwd" placeholder="Password" onInput={this.onInput} />
                 <input type="password" placeholder="Password" pattern={this.state.passwd} />
                 <input type="submit" value="Submit" />
             </form>
