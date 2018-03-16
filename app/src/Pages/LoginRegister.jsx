@@ -41,6 +41,7 @@ export default class LoginRegister extends React.Component {
                                 <Textfield holder="E-Mail" type="email" />
                                 <Textfield holder="Password" type="password" />
                                 <Textfield holder="Confirm password" type="password" />
+                                <Textfield holder="Key" type="password" />
                                 <button type="submit" className="submit btn">Register</button>
                             </div>
                         </form>

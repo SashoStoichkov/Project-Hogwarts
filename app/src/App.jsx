@@ -6,7 +6,6 @@ import LoginRegister from './Pages/LoginRegister.jsx'
 import Index from './Pages/Index.jsx'
 import Login from './Pages/Login.jsx'
 import Register from './Pages/Register.jsx'
-import Description from './Pages/Description.jsx'
 
 import {
     BrowserRouter as Router,
@@ -19,11 +18,8 @@ export default class App extends React.Component {
         return (
             <Router>
                 <Switch>
-                    <Route path='/' exact component={Description} />
                     <Route path='/index' exact component={Index} />
-                    <Route path='/login' exact component={Login} />
-                    <Route path='/register' exact component={Register} />
-                    <Route path='/loginregister' exact component={LoginRegister} />
+                    <Route path='/' exact component={LoginRegister} />
                 </Switch>
             </Router>
         );
