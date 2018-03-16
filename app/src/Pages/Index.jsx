@@ -43,6 +43,10 @@ export default class Index extends React.Component {
                         
                     </Section>
                 </div>
+                <div>
+                    <AceEditor />
+                </div>
+                
             </div>
         );
     }
