@@ -28,12 +28,14 @@ export default class Index extends React.Component {
         this.state = {
             cursor_pos: {},
             code: "",
-            file: ""
+            file: "",
+            open_files: []
         }
 
         this.updateCode = this.updateCode.bind(this)
         this.updateCursor = this.updateCursor.bind(this)
         this.updateCode = this.updateCode.bind(this)
+        this.double = this.double.bind(this)
     }
 
     updateCursor() {
@@ -55,21 +57,42 @@ export default class Index extends React.Component {
             file: this.state.file
         })
     }
-
+    double(e){
+        if (e.target.tagName == "P") {
+            if (!this.state.open_files.includes(e.target.innerHTML)) {
+                this.setState({
+                    open_files: [...this.state.open_files, 
+                        e.target.innerHTML
+                    ]
+                })
+            }
+        } else {
+            if (!this.state.open_files.includes(e.target.children[1].innerHTML)) {
+               this.setState({
+                    open_files: [...this.state.open_files,
+                        e.target.children[1].innerHTML
+                    ]
+                })
+            }
+        }
+    }
     render() {
+        const open_files = []
+        for (var i of this.state.open_files) {
+            open_files.push(<File text={i} />)
+        }
         return (
             <div>
                 <NavBar>
                     <img src={logo} id="logo"  alt="logo" />
-                    <Link to="#">LogIn/Register.jsx</Link>
-                    <Link to="#">Index.html</Link>                    
+                    {open_files}        
                 </NavBar>
                 <div id="leftside">
                     <Section text="Project Hogwarts">
                         <Folder text="app">
                             <Folder text="app">
-                            <File text=" index.html"/>
-                                <File text="index.js"/>
+                            <File onClick={this.double} text="index.html"/>
+                                <File onClick={this.double} text="index.js"/>
                                 <Folder text="app">
                                     <File text="index.css"/>
                                     <Folder text="app">
