@@ -26,16 +26,14 @@
 .register{
     grid-area: register;
     background: rgba(30,30,30,0.8);
-    padding: 10px;
-    padding-top: 30%;
+    padding-top:7em;
     text-align: center;
 }
 
 .login{
     grid-area: login;
     background: rgba(30,30,30,0.8);
-    padding: 10px;
-    padding-top: 30%;
+    padding-top:7em;
     text-align: center;
 }
 
@@ -93,8 +91,15 @@
 
 #login_permition{
     display: block;
+    
+    transition: all 0.3s ease-in;
 }
 
 #register_permition{
     display: none;
+
+}
+.submit{
+    margin-top:50px;
+    margin-left:80px;
 }
