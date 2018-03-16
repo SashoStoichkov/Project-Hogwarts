@@ -1,98 +1,104 @@
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, render_template, request, jsonify, redirect
 from flask_cors import CORS
-
-from dbconnect import connect
-from MySQLdb import escape_string
+from flask_socketio import SocketIO, emit
 
 from dotmap import DotMap
 
 from passlib.hash import sha256_crypt as sha256
 
-from functools import wraps
-
 import sqlite3
+
+from functools import wraps
 
 app = Flask(__name__)
 CORS(app)
-io = SocketIO(app)
 
-dict_c, c, conn = None, None, None
+conn, c = None, None
 
-mem_conn = sqlite3.connect(":memory:")
-mem_cur = mem_conn.cursor()
+def dict_factory(cursor, row): 
+    d = {} 
+    for idx, col in enumerate(cursor.description): 
+        d[col[0]] = row[idx] 
+    return d 
 
 def db(f):
     @wraps(f)
     def wrap(*a, **kw):
-        global dict_c, c, conn
+        global c, conn
+        conn = sqlite3.connect('database.db')
+        conn.row_factory = dict_factory
+        c = conn.cursor()
 
-        c, dict_c, conn = connect()
         rv = f(*a, **kw)
-        conn.commit()
+
         conn.close()
         return rv
     
     return wrap
 
-def es(s):
-    return escape_string(s).decode('utf-8')
-
 @app.route('/')
 def index():
-    return "<h1>We're still developing</h1>"
+    return render_template('test.html')
 
-@app.route('/login', methods=["POST"])
+@app.route('/login', methods=['POST'])
 @db
 def login():
     uname = request.form['uname']
     passwd = request.form['passwd']
-
-    x = dict_c.execute('selecti id, passwd from users where email = "{0}" or uname = "{0}"'.format(
-        es(uname)
-    ))
-
-    if int(x) == 0:
-        return jsonify(code="2", error="No such email or username")
-
-    fetched_info = DotMap(dict_c.fetchone())
-
-    if not sha256.verify(passwd, fetched_info.passwd):
-        return jsonify(code='3', error="Invalid password")
     
-    return jsonify(code="1", id=fetched_info.id)
+    c.execute('select passwd from users where uname = ?', (uname, ))
+
+    res = c.fetchone()
+
+    if res == None:
+        return jsonify(code="2", error="User not regitered")
+
+    res = DotMap(res)
+
+    if not sha256.verify(passwd, res.passwd):
+        return jsonify(code="3", error="Invalid Password")
+
+    return jsonify(code="1")
 
 @app.route('/register', methods=["POST"])
 @db
 def register():
-    uname = es(request.form['uname'])
-    email = es(request.form['email'])
+    uname = request.form['uname']
     passwd = request.form['passwd']
+    key = request.form['key']
 
-    x = c.execute('select id from users where uname = "{}"'.format(
-        uname
-    ))
+    c.execute('select key from keys where key = ?', (key, ))
 
-    if int(x):
-        return jsonify(code="2", error="Username already taken")
+    res = c.fetchone()
+
+    if res == None:
+        return jsonify(code="2", error="Invalid key")
     
-    x = c.execute('select id from users where email = "{}"'.format(
-        email
-    ))
+    c.execute('select uname from users where uname = ?', (uname, ))
+    res = c.fetchone()
 
-    if int(x):
-        return jsonify(code="2", error="Email already taken")
+    if res != None:
+        return jsonify(code="3", error="Username taken")
     
-    c.execute('insert into users (uname, email, passwd) values ("{0}", "{1}", "{2}")'.format(
+    c.execute('insert into users (uname, passwd) values (?, ?)', (
         uname,
-        email,
-        es(sha256.encrypt(passwd))
+        sha256.encrypt(passwd)
     ))
+
+    conn.commit()
 
     return jsonify(code="1")
 
-@io.on('update', namespace='/edit')
-def update_file(data):
-    
+@app.route('/add_key', methods=["POST"])
+@db
+def add_key():
+    key = request.form['key']
+
+    c.execute('insert into keys (key) values (?)', (key, ))
+
+    conn.commit()
+
+    return redirect('/')
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8000)
+    app.run(debug=True)
