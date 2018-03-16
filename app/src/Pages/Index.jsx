@@ -53,6 +53,7 @@ export default class Index extends React.Component {
                     </Section>
                 </div>
                 <div>
+<<<<<<< HEAD
                     <AceEditor 
                         mode="javascript"
                         theme="monokai"
@@ -63,6 +64,9 @@ export default class Index extends React.Component {
                         enableBasicAutocompletion={true}
                         enableLiveAutocompletion={true}
                     />
+=======
+                    <AceEditor theme="monokai" />
+>>>>>>> b95a0bb15df91f70155d24f6252628c7cb4b7bb9
                 </div>
             </div>
         );
