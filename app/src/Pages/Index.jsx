@@ -5,6 +5,14 @@ import Section from '../Components/Section.jsx'
 import Folder from '../Components/Folder.jsx'
 import File from '../Components/File.jsx'
 
+import AceEditor from 'react-ace'
+import io from 'socket.io-client'
+
+import brace from 'brace'
+
+import 'brace/themes/monokai'
+import 'brace/mode/python'
+
 export default class Index extends React.Component {
     render() {
         return (
@@ -17,9 +25,7 @@ export default class Index extends React.Component {
                         </Folder>
                     </Section>
                 </div>
-
             </div>
         );
     }
 }
-
