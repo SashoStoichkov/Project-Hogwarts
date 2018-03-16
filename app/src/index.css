@@ -63,6 +63,7 @@ i{
     height: 30px;
     color:white;
     user-select:none;
+    animation-duration: 0.3s!important;
 }
 .sectioncontent:hover, .folder:hover{
     background-color:grey;
@@ -125,4 +126,5 @@ i{
     cursor: pointer;
     margin-top:3px;
     font-size: 18px;
+    user-select:none;
 }

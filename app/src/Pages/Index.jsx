@@ -102,7 +102,7 @@ export default class Index extends React.Component {
         return (
             <div>
                 <NavBar>
-                    <img src={logo} id="logo"  alt="logo" />
+                    <img src={logo} id="logo"  className="animated pulse" alt="logo" />
                     {open_files}
                           
                 </NavBar>

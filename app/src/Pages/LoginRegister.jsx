@@ -36,7 +36,7 @@ export default class LoginRegister extends React.Component {
             <div>   
                 <div id="login_permition">
                     <div className="main_login">
-                        <div style={{width: "100%", height: "100%"}} className="card">
+                        <div style={{width: "100%", height: "100%"}} className="animated fadeIn card">
                             <form action="/login" method="POST" onSubmit={this.login}>
                                 <div className="title">
                                     Log in
@@ -57,8 +57,8 @@ export default class LoginRegister extends React.Component {
                     </div> 
                 </div>
                 <div id="register_permition">
-                    <div className="main_register">
-                        <div style={{width: "100%", height: "100%"}} className="card">
+                    <div className=" main_register">
+                        <div style={{width: "100%", height: "100%"}} className=" animated fadeIn card">
                             <form action="/register" method="POST">
                                 <div className="title">
                                     Register
