@@ -19,7 +19,7 @@ import 'brace/theme/monokai'
 import 'brace/mode/python'
 import 'brace/mode/javascript'
 
-import logo from '../Images/logo.png'
+import logo from '../Images/logo34.png'
 
 export default class Index extends React.Component {
     render() {
@@ -35,13 +35,13 @@ export default class Index extends React.Component {
                         <Folder text="app">
                             <File text="index.html"/>
                             <Folder text="app">
-                                <File text="index.html"/>
+                                <File text="index.js"/>
                                 <Folder text="app">
-                                    <File text="index.html"/>
+                                    <File text="index.css"/>
                                     <Folder text="app">
-                                        <File text="index.html"/>
+                                        <File text="index.jsx"/>
                                         <Folder text="app">
-                                            <File text="index.html"/>
+                                            <File text="index.py"/>
                                             <Folder text="app">
                                                 <File text="index.html"/>
                                             </Folder>
