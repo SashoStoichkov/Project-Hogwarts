@@ -14,7 +14,10 @@
     padding:0;
 }
 body, html{
-    background-color: black;
+    background: url("https://www.bitdegree.org/tutorials/wp-content/uploads/2018/02/Sierra.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: 0;
     overflow:hidden;
 }
