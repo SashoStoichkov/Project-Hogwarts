@@ -17,7 +17,7 @@ export default class Folder extends React.Component {
     }
     render() {       
         return (
-            <div>
+            <div className="space">
                 <div onClick={this.toggle} className="folder">
                     <i className="material-icons">{this.state.icon}</i>
                     <p className="sectiontext">{this.props.text}</p>

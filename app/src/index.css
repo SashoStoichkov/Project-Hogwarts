@@ -74,7 +74,7 @@ i{
 }
 .navbar {
     display: flex;
-    background-color: black;
+    background-color: #333;
     height: 50px;
     width: 100%;
 
@@ -112,4 +112,7 @@ i{
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #1778c4; 
+}
+.space{
+    padding-left: 17px;
 }
