@@ -17,6 +17,7 @@ import{
     
 } from 'react-mdl'
 
+import thumbnail from "../Images/logo35.png"
 import CardImage from '../Components/CardImage.jsx'
 import 'react-mdl/extra/css/material.blue-pink.min.css'
 import 'react-mdl/extra/material.js'
@@ -47,7 +48,7 @@ export default class Descript extends React.Component{
                         <Cell col={4}>
                             <Card shadow={4}  style={{width: '100%', height: '100%'}}>
                                 <CardTitle>Добре дошли!</CardTitle>
-                                <CardText>
+                                <CardText style={{textAlign: 'center'}}>
                                     
                                 </CardText>
                             </Card>
@@ -55,20 +56,20 @@ export default class Descript extends React.Component{
                         <Cell col={4}>
                             <Card shadow={4}  style={{width: '100%', height: '100%'}}>
                                 <CardTitle>Екипът:</CardTitle>
-                                <CardImage height="250px" url="https://wallup.net/wp-content/uploads/2017/11/22/342160-programming-code-simple_background-coding.jpg" />
+                                <CardImage height="335px" url={thumbnail} />
                                 <CardText>
                                     <List>
                                         <ListItem twoLine>
-                                            <ListItemContent subtitle="Front-End" avatar="person">Александър Стоичков</ListItemContent>
+                                            <ListItemContent subtitle="Sample text" avatar="person">Александър Стоичков</ListItemContent>
                                         </ListItem >
                                         <ListItem twoLine>
-                                            <ListItemContent subtitle="Front-End" avatar="person">Иван Димитров</ListItemContent>
+                                            <ListItemContent subtitle="Sample text" avatar="person">Иван Димитров</ListItemContent>
                                         </ListItem>
                                         <ListItem twoLine>
-                                            <ListItemContent subtitle="Back-End && JS" avatar="person">Кристиян Йочев</ListItemContent>
+                                            <ListItemContent subtitle="Sample text" avatar="person">Кристиян Йочев</ListItemContent>
                                         </ListItem>
                                         <ListItem twoLine>
-                                            <ListItemContent subtitle="Photoshop" avatar="person">Виктор Петров</ListItemContent>
+                                            <ListItemContent subtitle="Sample text" avatar="person">Виктор Петров</ListItemContent>
                                         </ListItem>
                                         <ListItem twoLine>
                                             <ListItemContent subtitle="SysAdmin, Server maniac, Front-End" avatar="person">Георги Корчаков</ListItemContent>

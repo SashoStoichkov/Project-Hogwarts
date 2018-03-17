@@ -159,6 +159,9 @@ export default class Index extends React.Component {
                         value={this.state.code}
                         ref="editor"
                     />
+                    <iframe src="https://project-hogwarts.ht.cloudbalkan.com:4200/" style={{ width: "calc(100% - 170px)", height: "250px", background: "#666", color: "green" }} >
+                        <p>Your browser does not support iframes.</p>
+                    </iframe>
                 </div>
             </div>
         );
