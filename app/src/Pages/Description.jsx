@@ -41,6 +41,10 @@ export default class Descript extends React.Component{
                                 <CardText>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                     Mauris sagittis pellentesque lacus eleifend lacinia...
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Mauris sagittis pellentesque lacus eleifend lacinia...
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Mauris sagittis pellentesque lacus eleifend lacinia...
                                 </CardText>
                             </Card>
                         </Cell>
