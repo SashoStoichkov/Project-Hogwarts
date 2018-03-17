@@ -46,7 +46,7 @@ export default class Descript extends React.Component{
                         <Cell col={2}></Cell>
                         <Cell col={4}>
                             <Card shadow={4}  style={{width: '100%', height: '100%'}}>
-                                <CardTitle className='animated fadeInRight'>Добре дошли!</CardTitle>
+                                <CardTitle>Добре дошли!</CardTitle>
                                 <CardText style={{textAlign: 'center'}}>
                                     Здравейте! На път сте да си свалите нещо, 
                                     което ще промени изцяло представите Ви за кодов редактор!
@@ -69,7 +69,7 @@ export default class Descript extends React.Component{
                         </Cell>
                         <Cell col={4}>
                             <Card shadow={4} style={{width: '600px', height: '100%'}}>
-                                <CardTitle className='animated fadeInLeft'>Екипът:</CardTitle>
+                                <CardTitle>Екипът:</CardTitle>
                                 <CardImage height="335px" url={thumbnail}/>
                                 <CardText>
                                     <List>
