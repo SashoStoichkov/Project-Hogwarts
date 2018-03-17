@@ -60,16 +60,16 @@ export default class Descript extends React.Component{
                                 <CardText>
                                     <List>
                                         <ListItem twoLine>
-                                            <ListItemContent subtitle="Sample text" avatar="person">Александър Стоичков</ListItemContent>
+                                            <ListItemContent subtitle="Front-End" avatar="person">Александър Стоичков</ListItemContent>
                                         </ListItem >
                                         <ListItem twoLine>
-                                            <ListItemContent subtitle="Sample text" avatar="person">Иван Димитров</ListItemContent>
+                                            <ListItemContent subtitle="Front-End, FullDesign" avatar="person">Иван Димитров</ListItemContent>
                                         </ListItem>
                                         <ListItem twoLine>
-                                            <ListItemContent subtitle="Sample text" avatar="person">Кристиян Йочев</ListItemContent>
+                                            <ListItemContent subtitle="Back-End, Front-End, App Functionality" avatar="person">Кристиян Йочев</ListItemContent>
                                         </ListItem>
                                         <ListItem twoLine>
-                                            <ListItemContent subtitle="Sample text" avatar="person">Виктор Петров</ListItemContent>
+                                            <ListItemContent subtitle="Photoshop" avatar="person">Виктор Петров</ListItemContent>
                                         </ListItem>
                                         <ListItem twoLine>
                                             <ListItemContent subtitle="SysAdmin, Server maniac, Front-End" avatar="person">Георги Корчаков</ListItemContent>
