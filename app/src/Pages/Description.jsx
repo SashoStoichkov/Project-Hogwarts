@@ -9,7 +9,8 @@ import{
     Cell,
     Card,
     CardTitle,
-    CardText
+    CardText,
+    Button
 } from 'react-mdl'
 
 import 'react-mdl/extra/css/material.blue-pink.min.css'
@@ -31,6 +32,9 @@ export default class Descript extends React.Component{
                         <span style={{display : 'flex', marginTop: '8px'}}>odeHub</span>
                     </span>
                 }>
+                    <Navigation>
+                        <Button style={{width : '150px', fontSize: "18px", height : "60px", marginTop : '10px', borderRadius : '40px'}} raised colored ripple>Download</Button>
+                    </Navigation>
                 </Header>
                 <Content>
                     <Grid>
