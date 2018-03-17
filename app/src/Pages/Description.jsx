@@ -48,7 +48,7 @@ export default class Descript extends React.Component{
                         <Cell col={4}>
                             <Card shadow={4}  style={{width: '100%', height: '100%'}}>
                                 <CardTitle>Добре дошли!</CardTitle>
-                                <CardText>
+                                <CardText style={{textAlign: 'center'}}>
                                     
                                 </CardText>
                             </Card>
