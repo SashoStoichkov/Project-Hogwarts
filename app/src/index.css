@@ -8,7 +8,7 @@
 }
 
 body, html{
-    background: black;  
+    background: #272822;  
 
     margin: 0;
     font-family: roboto;
@@ -125,7 +125,7 @@ i{
 }
 .section{
     color:white;
-    background-color: black;
+    background-color: #272822;
     overflow:auto;
     display:none;
 }
@@ -150,7 +150,12 @@ i{
 #sectionparent{
     background:black;
 }
-
+#bglogo{
+    background-image: url('./Images/bg_editor.png');
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 @media screen and (min-width: 800px){
     #brace-editor{
         width:initial!important;
