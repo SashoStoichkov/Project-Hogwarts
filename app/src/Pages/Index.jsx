@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Textfield from '../Components/Textfield.jsx'
-import Section from '../Components/Section.jsx'
 import Folder from '../Components/Folder.jsx'
 import File from '../Components/File.jsx'
 import NavBar from '../Components/NavBar.jsx'
@@ -40,7 +39,24 @@ export default class Index extends React.Component {
             cursor_pos: {},
             code: "",
             file: "",
-            open_files: []
+            open_files: [],
+            file_structure: {
+                'app': {
+                    'main.py': 'file',
+                    'templates': {
+                        'index.html': 'file'
+                    },
+                    'static': {
+                        'img': {},
+                        'js': {
+                            'index.js': 'file'
+                        },
+                        'css': {
+                            'index.css': 'file'
+                        }
+                    }
+                }
+            }
         }
 
         this.updateCode = this.updateCode.bind(this)
@@ -95,10 +111,11 @@ export default class Index extends React.Component {
         })
     }
     render() {
-        const open_files = []
+        var open_files = []
         for (var i of this.state.open_files) {
             open_files.push(<div style={{display: 'flex', marginTop : '10px'}}><File text={i} /><i className="clear material-icons" onClick={this.remove_file}>clear</i></div>)
         }
+
         return (
             <div>
                 <NavBar>
@@ -107,10 +124,10 @@ export default class Index extends React.Component {
                           
                 </NavBar>
                 <div id="leftside">
-                    <Section text="Project Hogwarts">
-                        <Folder text="app">
+                    <Folder className="section spaceclear" id="sectionfield" text="Project Hogwarts" structure={this.state.file_structure} fileOnClick={this.double}>
+                        {/* <Folder  text="app">
                             <Folder text="app">
-                            <File onClick={this.double} text="index.html"/>
+                                <File onClick={this.double} text="index.html"/>
                                 <File onClick={this.double} text="index.js"/>
                                 <Folder text="app">
                                     <File onClick={this.double} text="index.css"/>
@@ -125,9 +142,8 @@ export default class Index extends React.Component {
                                     </Folder>
                                 </Folder>
                             </Folder>
-                        </Folder>
-                    </Section>
-                    
+                        </Folder> */}
+                    </Folder>
                 </div>
                 <div>
                     <AceEditor 
