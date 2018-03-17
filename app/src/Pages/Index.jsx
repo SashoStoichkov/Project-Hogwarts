@@ -72,8 +72,15 @@ export default class Index extends React.Component {
     }
 
     open_file(path, name, add_new){
-        add_new = add_new ? add_new : true
+        add_new = typeof(add_new) == 'undefined' ? true : add_new
+        
         api.get_file_content(path+'/'+name, resp => {
+            for (var i = 0; i < this.state.open_files.length; i++) {
+                if (this.state.open_files[i].filename == name && this.state.open_files[i].path == path) {
+                    add_new = false;
+                    break
+                }
+            }
             if (add_new) {
                 this.setState({
                     code: resp.data,
