@@ -5,6 +5,7 @@ import Folder from '../Components/Folder.jsx'
 import File from '../Components/File.jsx'
 import NavBar from '../Components/NavBar.jsx'
 import NavFile from '../Components/NavFile.jsx'
+import NavFileContainer from '../Components/NavFileContainer.jsx'
 
 import {
     Link
@@ -23,17 +24,6 @@ import logo from '../Images/logo.png'
 
 import api from '../api'
 
-Array.prototype.remove = function() {
-    var what, a = arguments, L = a.length, ax;
-    while (L && this.length) {
-        what = a[--L];
-        while ((ax = this.indexOf(what)) !== -1) {
-            this.splice(ax, 1);
-        }
-    }
-    return this;
-}
-
 export default class Index extends React.Component {
     constructor(props) {
         super(props)
@@ -42,7 +32,7 @@ export default class Index extends React.Component {
         this.ws.on('update', data => {
             if (data.file === this.state.file) {
                 this.setState({
-                    code: data.file
+                    code: data.code
                 })
             }
         })
@@ -55,23 +45,21 @@ export default class Index extends React.Component {
             file_structure: {}
         }
 
-        api.get_folder_structure(resp => {
-            this.setState({
-                file_structure: resp.tree
-            })
-            console.log(resp.tree)
-        }, () => {})
-
         this.updateCode = this.updateCode.bind(this)
         this.updateCode = this.updateCode.bind(this)
-        this.double = this.double.bind(this)
+        this.open_file = this.open_file.bind(this)
         this.remove_file = this.remove_file.bind(this)
         this.setWorkingFile = this.setWorkingFile.bind(this)
     }
 
     updateCode(newCode) {
+        console.log(newCode)
         this.setState({
             code: newCode
+        })
+        this.ws.emit('update', {
+            code: this.state.code,
+            file: this.state.file
         })
     }
 
@@ -83,36 +71,41 @@ export default class Index extends React.Component {
         })
     }
 
-    double(e, path){
-        if (e.target.tagName == "P") {
-            if (!this.state.open_files.includes(e.target.innerHTML)) {
+    open_file(path, name, add_new){
+        add_new = add_new || true
+        console.log(add_new)
+        api.get_file_content(path+'/'+name, resp => {
+            if (add_new) {
                 this.setState({
-                    open_files: [...this.state.open_files, 
-                        {
-                            name: e.target.innerHTML,
-                            path: path
-                        }
-                    ]
-                })
-            }
-        } else {
-            if (!this.state.open_files.includes(e.target.children[1].innerHTML)) {
-               this.setState({
+                    code: resp.data,
                     open_files: [...this.state.open_files,
                         {
-                            name: e.target.children[1].innerHTML,
+                            filename: name,
                             path: path
                         }
-                    ]
+                    ],
+                    file: path+'/'+name
+                })
+            } else {
+                this.setState({
+                    code: resp.data,
+                    file: path+'/'+name
                 })
             }
-        }
+        }, () => {})
     }
 
-    remove_file(e) {
-        var new_open_files = this.state.open_files.remove(e.target.parentNode.children[0].children[1].innerHTML)
+    remove_file(path, name) {
+        var new_open_files = this.state.open_files
+        for (var i in new_open_files) {
+            if (new_open_files[i].filename === name && new_open_files[i].path === path) {
+                new_open_files.splice(i, 1)
+                break;
+            }
+        }
         this.setState({
-            open_files: new_open_files
+            open_files: new_open_files,
+            code: ""
         })
     }
 
@@ -125,10 +118,21 @@ export default class Index extends React.Component {
         }, () => {})
     }
 
+    componentWillMount() {
+        api.get_folder_structure(resp => {
+            this.setState({
+                file_structure: resp.tree
+            })
+            console.log(resp.tree)
+        }, () => {})
+    }
+
     render() {
         var open_files = []
         for (var i of this.state.open_files) {
-            open_files.push(<div style={{display: 'flex', marginTop : '10px'}}><NavFile text={i} /><i className="clear material-icons" onClick={this.remove_file}>clear</i></div>)
+            open_files.push((
+                <NavFileContainer open_file={this.open_file} remove_file={this.remove_file} filename={i.filename} path={i.path}/>
+            ))
         }
 
         return (
@@ -139,7 +143,7 @@ export default class Index extends React.Component {
                           
                 </NavBar>
                 <div id="leftside">
-                    <Folder className="section spaceclear" id="sectionfield" text="Project Hogwarts" structure={this.state.file_structure} fileOnClick={this.double} path="" />
+                    <Folder className="section spaceclear" id="sectionfield" text="Project Hogwarts" structure={this.state.file_structure} fileOnClick={this.open_file} path="./project" />
                 </div>
                 <div>
                     <AceEditor 
@@ -152,7 +156,6 @@ export default class Index extends React.Component {
                         enableBasicAutocompletion={true}
                         enableLiveAutocompletion={true}
                         onChange={this.updateCode}
-                        onCursorChange={this.updateCursor}
                         value={this.state.code}
                         ref="editor"
                     />
