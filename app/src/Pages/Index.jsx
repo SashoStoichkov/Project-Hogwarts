@@ -72,7 +72,6 @@ export default class Index extends React.Component {
     }
 
     open_file(path, name, add_new){
-        add_new = add_new || true
         console.log(add_new)
         api.get_file_content(path+'/'+name, resp => {
             if (add_new) {
