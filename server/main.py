@@ -155,8 +155,6 @@ def update_code(data):
         'file': filename
     }
 
-    print(filename, code)
-
     with open('./' + filename, 'w') as f:
         f.write(code)
     

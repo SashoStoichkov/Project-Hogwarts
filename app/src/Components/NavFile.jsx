@@ -9,7 +9,7 @@ export default class NavFile extends React.Component {
     }
 
     onClick() {
-        this.props.onClick(this.props.path, this.props.text)
+        this.props.onClick(this.props.path, this.props.text, false)
     }
 
     render() {
