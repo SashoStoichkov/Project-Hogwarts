@@ -13,8 +13,7 @@ import{
     Button,
     List,
     ListItem,
-    ListItemContent,
-    
+    ListItemContent
 } from 'react-mdl'
 
 import thumbnail from "../Images/team.png"
@@ -53,17 +52,18 @@ export default class Descript extends React.Component{
                                     <br/>
                                     Преставяме на Вашето внимание - <strong>CodeHub</strong>
                                     <br/>
+                                    
                                 </CardText>
                             </Card>
                         </Cell>
                         <Cell col={4}>
-                            <Card shadow={4}  style={{width: '600px', height: '100%'}}>
+                            <Card shadow={4} style={{width: '600px', height: '100%'}}>
                                 <CardTitle>Екипът:</CardTitle>
-                                <CardImage height="335px" url={thumbnail} />
+                                <CardImage height="335px" url={thumbnail}/>
                                 <CardText>
                                     <List>
                                         <ListItem twoLine>
-                                            <ListItemContent subtitle="Front-End" avatar="person">Александър Стоичков</ListItemContent>
+                                            <ListItemContent subtitle="Front-End, Акъл provider" avatar="person">Александър Стоичков</ListItemContent>
                                         </ListItem >
                                         <ListItem twoLine>
                                             <ListItemContent subtitle="Front-End, FullDesign" avatar="person">Иван Димитров</ListItemContent>
