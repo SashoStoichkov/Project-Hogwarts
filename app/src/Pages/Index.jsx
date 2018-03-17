@@ -4,6 +4,7 @@ import Textfield from '../Components/Textfield.jsx'
 import Folder from '../Components/Folder.jsx'
 import File from '../Components/File.jsx'
 import NavBar from '../Components/NavBar.jsx'
+import NavFile from '../Components/NavFile.jsx'
 
 import {
     Link
@@ -127,7 +128,7 @@ export default class Index extends React.Component {
     render() {
         var open_files = []
         for (var i of this.state.open_files) {
-            open_files.push(<div style={{display: 'flex', marginTop : '10px'}}><File text={i.name} onClick={this.setWorkingFile} path={i.path} /><i className="clear material-icons" onClick={this.remove_file}>clear</i></div>)
+            open_files.push(<div style={{display: 'flex', marginTop : '10px'}}><NavFile text={i} /><i className="clear material-icons" onClick={this.remove_file}>clear</i></div>)
         }
 
         return (

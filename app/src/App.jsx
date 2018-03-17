@@ -2,8 +2,10 @@ import React from 'react'
 
 import Textfield from './Components/Textfield.jsx'
 import LoginRegister from './Pages/LoginRegister.jsx'
+import Descript from './Pages/Description.jsx'
 
 import Index from './Pages/Index.jsx'
+import Test from './Pages/Test.jsx'
 
 import {
     BrowserRouter as Router,
@@ -16,8 +18,10 @@ export default class App extends React.Component {
         return (
             <Router>
                 <Switch>
-                    <Route path='/index' exact component={Index} />
+                    <Route path='/code' exact component={Index} />
                     <Route path='/' exact component={LoginRegister} />
+                    <Route path='/test' exact component={Test} />
+                    <Route path='/description' component={Descript} />
                 </Switch>
             </Router>
         );
