@@ -1,32 +1,42 @@
 import React from 'react'
 
-import Textfield from '../Components/Textfield.jsx'
-import Section from '../Components/Section.jsx'
-import Folder from '../Components/Folder.jsx'
-import File from '../Components/File.jsx'
-import NavBar from '../Components/NavBar.jsx'
+import{
+    Layout,
+    Header,
+    Drawer,
+    Navigation,
+    Content,
+    HeaderRow,
+    Textfield
+} from 'react-mdl'
+
+import 'react-mdl/extra/css/material.blue-pink.min.css'
+import 'react-mdl/extra/material.js'
 
 import {
     Link
 } from 'react-router-dom'
 
-import AceEditor from 'react-ace'
-import io from 'socket.io-client'
-
-import brace from 'brace'
-
-import 'brace/theme/monokai'
-import 'brace/mode/python'
-
-import logo from '../Images/logo.png'
-
-
-export default class Description extends React.Component {
-    render() {
-        return (
-            <div className="grid-description">
-                
-            </div>    
-        );
+export default class Descript extends React.Component{
+    render(){
+        return(
+            <Layout style={{background: '(../Images/Siera.png) center / cover'}}>
+                <Header transparent title="CodeHub" style={{color: 'white'}}>
+                    <Navigation>
+                        <Link to="#">LogIn/Register</Link>
+                        <Link to="#">Code Editor</Link>
+                        <Link to="#">For Us</Link>
+                    </Navigation>
+                </Header>
+                <Drawer title="CodeHub">
+                    <Navigation>
+                        <Link to="#">LogIn/Register</Link>
+                        <Link to="#">Code Editor</Link>
+                        <Link to="#">For Us</Link>
+                    </Navigation>
+                </Drawer>
+                <Content />
+            </Layout>
+        )
     }
 }

@@ -2,6 +2,7 @@ import React from 'react'
 
 import Textfield from './Components/Textfield.jsx'
 import LoginRegister from './Pages/LoginRegister.jsx'
+import Descript from './Pages/Description.jsx'
 
 import Index from './Pages/Index.jsx'
 
@@ -18,6 +19,7 @@ export default class App extends React.Component {
                 <Switch>
                     <Route path='/index' exact component={Index} />
                     <Route path='/' exact component={LoginRegister} />
+                    <Route path='/description' component={Descript} />
                 </Switch>
             </Router>
         );
