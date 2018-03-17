@@ -28,17 +28,11 @@ export default class Descript extends React.Component{
         return(
             <Layout>
                 <Header transparent title={
-                    <span style={{display : 'flex'}} >
+                    <span  className="animated jackInTheBox" style={{display : 'flex'}} >
                         <img src={logo} width="40" height="40" alt="icon_logo" />
                         <span style={{display : 'flex', marginTop: '8px'}}>odeHub</span>
                     </span>
                 }>
-                    
-                    <Navigation>
-                        <Link to="#">LogIn/Register</Link>
-                        <Link to="#">Code Editor</Link>
-                        <Link to="#">For Us</Link>
-                    </Navigation>
                 </Header>
             </Layout>
         )
