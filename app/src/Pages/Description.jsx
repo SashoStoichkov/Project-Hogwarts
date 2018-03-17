@@ -8,12 +8,8 @@ import{
     Card,
     CardTitle,
     CardText,
-<<<<<<< HEAD
     Grid,
     Cell
-=======
-    Button
->>>>>>> f06d9ee3239d69fa642b570947bc3d138eb6ec4c
 } from 'react-mdl'
 
 import 'react-mdl/extra/css/material.blue-pink.min.css'
