@@ -139,13 +139,7 @@ export default class Index extends React.Component {
                           
                 </NavBar>
                 <div id="leftside">
-<<<<<<< HEAD
-                    <Folder className="section spaceclear" id="sectionfield" text="Project Hogwarts" structure={this.state.file_structure} fileOnClick={this.double}>
-                        
-                    </Folder>
-=======
                     <Folder className="section spaceclear" id="sectionfield" text="Project Hogwarts" structure={this.state.file_structure} fileOnClick={this.double} path="" />
->>>>>>> f557e2dbd4e7f0c0597d70051625a40a6dafba7f
                 </div>
                 <div>
                     <AceEditor 
@@ -162,7 +156,7 @@ export default class Index extends React.Component {
                         value={this.state.code}
                         ref="editor"
                     />
-                    <iframe src="https://project-hogwarts.ht.cloudbalkan.com:4200/" style={{ width: "calc(100% - 170px)", height: "250px", background: "#666", color: "green" }} >
+                    <iframe src="https://project-hogwarts.ht.cloudbalkan.com:4200/" id="terminal"  >
                         <p>Your browser does not support iframes.</p>
                     </iframe>
                 </div>

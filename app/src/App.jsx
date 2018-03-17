@@ -21,10 +21,7 @@ export default class App extends React.Component {
                     <Route path='/code' exact component={Index} />
                     <Route path='/' exact component={LoginRegister} />
                     <Route path='/test' exact component={Test} />
-<<<<<<< HEAD
-=======
                     <Route path='/description' component={Descript} />
->>>>>>> f557e2dbd4e7f0c0597d70051625a40a6dafba7f
                 </Switch>
             </Router>
         );

@@ -130,3 +130,9 @@ i{
 .mdl-layout-title{
     font-size:30px!important;
 }
+#terminal{
+    width: calc(100% - 170px);
+    height: 250px;
+    background: white; 
+    
+}

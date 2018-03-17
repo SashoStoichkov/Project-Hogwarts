@@ -6,6 +6,7 @@ import "./loginregister.css"
 import "./animate.css"
 import 'file-icons-js/css/style.css'
 
+
 import App from './App.jsx' 
 
 ReactDOM.render(
