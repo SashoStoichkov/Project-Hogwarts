@@ -5,6 +5,13 @@ import{
     Header,
     Navigation,
     Content,
+    Card,
+    CardTitle,
+    CardText,
+    CardActions,
+    Button,
+    CardMenu,
+    IconButton
 } from 'react-mdl'
 
 import 'react-mdl/extra/css/material.blue-pink.min.css'
@@ -33,7 +40,6 @@ export default class Descript extends React.Component{
                         <Link to="#">For Us</Link>
                     </Navigation>
                 </Header>
-                <Content />
             </Layout>
         )
     }
