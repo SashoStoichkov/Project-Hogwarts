@@ -3,11 +3,8 @@ import React from 'react'
 import{
     Layout,
     Header,
-    Drawer,
     Navigation,
     Content,
-    HeaderRow,
-    Textfield
 } from 'react-mdl'
 
 import 'react-mdl/extra/css/material.blue-pink.min.css'
@@ -17,24 +14,25 @@ import {
     Link
 } from 'react-router-dom'
 
+import logo from "../Images/icon.png";
+
 export default class Descript extends React.Component{
     render(){
         return(
-            <Layout style={{background: '(../Images/Siera.png) center / cover'}}>
-                <Header transparent title="CodeHub" style={{color: 'white'}}>
+            <Layout>
+                <Header transparent title={
+                    <span style={{display : 'flex'}} >
+                        <img src={logo} width="40" height="40" alt="icon_logo" />
+                        <span style={{display : 'flex', marginTop: '8px'}}>odeHub</span>
+                    </span>
+                }>
+                    
                     <Navigation>
                         <Link to="#">LogIn/Register</Link>
                         <Link to="#">Code Editor</Link>
                         <Link to="#">For Us</Link>
                     </Navigation>
                 </Header>
-                <Drawer title="CodeHub">
-                    <Navigation>
-                        <Link to="#">LogIn/Register</Link>
-                        <Link to="#">Code Editor</Link>
-                        <Link to="#">For Us</Link>
-                    </Navigation>
-                </Drawer>
                 <Content />
             </Layout>
         )
