@@ -10,9 +10,15 @@ import{
     CardText,
     Grid,
     Cell,
-    Button
+    Button,
+    List,
+    ListItem,
+    ListItemContent,
+    
 } from 'react-mdl'
 
+import thumbnail from "../Images/logo35.png"
+import CardImage from '../Components/CardImage.jsx'
 import 'react-mdl/extra/css/material.blue-pink.min.css'
 import 'react-mdl/extra/material.js'
 
@@ -38,12 +44,37 @@ export default class Descript extends React.Component{
                 </Header>
                 <Content>
                     <Grid>
-                        <Cell col={3}></Cell>
-                        <Cell col={6}>
+                        <Cell col={2}></Cell>
+                        <Cell col={4}>
                             <Card shadow={4}  style={{width: '100%', height: '100%'}}>
                                 <CardTitle>Добре дошли!</CardTitle>
                                 <CardText>
                                     
+                                </CardText>
+                            </Card>
+                        </Cell>
+                        <Cell col={4}>
+                            <Card shadow={4}  style={{width: '100%', height: '100%'}}>
+                                <CardTitle>Екипът:</CardTitle>
+                                <CardImage height="335px" url={thumbnail} />
+                                <CardText>
+                                    <List>
+                                        <ListItem twoLine>
+                                            <ListItemContent subtitle="Sample text" avatar="person">Александър Стоичков</ListItemContent>
+                                        </ListItem >
+                                        <ListItem twoLine>
+                                            <ListItemContent subtitle="Sample text" avatar="person">Иван Димитров</ListItemContent>
+                                        </ListItem>
+                                        <ListItem twoLine>
+                                            <ListItemContent subtitle="Sample text" avatar="person">Кристиян Йочев</ListItemContent>
+                                        </ListItem>
+                                        <ListItem twoLine>
+                                            <ListItemContent subtitle="Sample text" avatar="person">Виктор Петров</ListItemContent>
+                                        </ListItem>
+                                        <ListItem twoLine>
+                                            <ListItemContent subtitle="SysAdmin, Server maniac, Front-End" avatar="person">Георги Корчаков</ListItemContent>
+                                        </ListItem>
+                                    </List>
                                 </CardText>
                             </Card>
                         </Cell>
