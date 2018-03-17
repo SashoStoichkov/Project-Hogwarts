@@ -11,6 +11,8 @@ import {
     Link
 } from 'react-router-dom'
 
+import bglogo from "../Images/bg_editor.png"
+
 import AceEditor from 'react-ace'
 import io from 'socket.io-client'
 
@@ -114,7 +116,7 @@ export default class Index extends React.Component {
             open_files: [],
             file_structure: {},
             icon: "keyboard_arrow_right",
-            display: "none",
+            display: "initial",
         }
         
         this.updateCode = this.updateCode.bind(this)
@@ -264,19 +266,21 @@ export default class Index extends React.Component {
                     />
                 </div>
                 <div>
-                    <AceEditor 
-                        mode={get_file_type(this.state.file)}
-                        theme="monokai"
-                        fontSize={18}
-                        showPrintMargin={false}
-                        highlightActiveLine={true}
-                        tabSize={4}
-                        enableBasicAutocompletion={true}
-                        enableLiveAutocompletion={true}
-                        onChange={this.updateCode}
-                        value={this.state.code}
-                        ref="editor"
-                    />
+                    <div id="bglogo">
+                        <AceEditor 
+                            mode={get_file_type(this.state.file)}
+                            theme="monokai"
+                            fontSize={18}
+                            showPrintMargin={false}
+                            highlightActiveLine={true}
+                            tabSize={4}
+                            enableBasicAutocompletion={true}
+                            enableLiveAutocompletion={true}
+                            onChange={this.updateCode}
+                            value={this.state.code}
+                            ref="editor"
+                        />
+                    </div>
                     <iframe src="https://project-hogwarts.ht.cloudbalkan.com:4200/" id="terminal"  >
                         <p>Your browser does not support iframes.</p>
                     </iframe>
