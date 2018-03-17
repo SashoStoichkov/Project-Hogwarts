@@ -108,7 +108,7 @@ export default class Index extends React.Component {
             open_files: [],
             file_structure: {},
             icon: "keyboard_arrow_right",
-            display: "none",
+            display: "initial",
         }
         
         this.updateCode = this.updateCode.bind(this)
