@@ -198,7 +198,8 @@ export default class Index extends React.Component {
         }
         this.setState({
             open_files: new_open_files,
-            code: ""
+            code: "",
+            file: ''
         })
     }
 
@@ -288,7 +289,7 @@ export default class Index extends React.Component {
                 </div>
                 <div>
                     <div id="bglogo">
-                        <AceEditor 
+                    { this.state.file != '' ? <AceEditor 
                             mode={get_file_type(this.state.file)}
                             theme="monokai"
                             fontSize={18}
@@ -300,7 +301,9 @@ export default class Index extends React.Component {
                             onChange={this.updateCode}
                             value={this.state.code}
                             ref="editor"
-                        />
+                        /> :
+                        <img src={bglogo} />
+                    }
                     </div>
                     <iframe src="https://project-hogwarts.ht.cloudbalkan.com:4200/" id="terminal">
                         <p>Your browser does not support iframes.</p>
