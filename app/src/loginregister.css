@@ -50,6 +50,7 @@
     color: rgba(200, 200, 200, 0.9);
     font-size: 25px;
     border-radius: 8px;
+    outline:none;
 }
 
 .btn:hover{
@@ -114,6 +115,7 @@
     padding: 10px 14px 10px 14px;
     color: white;
     box-shadow: 2px 2px #aaa;
+    outline:none;
 }
 
 .submit:hover{

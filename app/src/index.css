@@ -14,7 +14,7 @@
     padding:0;
 }
 body, html{
-    background-image: url("./Images/Sierra1.png");
+    background-image: url("./Images/sierra_original.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,7 +24,7 @@ body, html{
 }
 .section{
     color:white;
-    background-color: #696c72;
+    background-color: black;
     height: 100vh;
     overflow:auto;
 }
@@ -59,7 +59,6 @@ i{
 .sectioncontent{
     display:flex;
     cursor: pointer;
-    font-family: roboto;
     height: 30px;
     color:white;
     user-select:none;
@@ -103,17 +102,14 @@ i{
     width: 5px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
     background: #f1f1f1; 
 }
  
-/* Handle */
 ::-webkit-scrollbar-thumb {
     background: #2196F3; 
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #1778c4; 
 }
@@ -121,10 +117,16 @@ i{
     padding-left: 17px;
     
 }
+.spaceclear{
+    padding-left:0px!important;
+}
 .clear{
     color:white;
     cursor: pointer;
     margin-top:3px;
     font-size: 18px;
     user-select:none;
+}
+.mdl-layout-title{
+    font-size:30px!important;
 }
