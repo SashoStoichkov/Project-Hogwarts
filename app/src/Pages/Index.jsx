@@ -4,6 +4,7 @@ import Textfield from '../Components/Textfield.jsx'
 import Folder from '../Components/Folder.jsx'
 import File from '../Components/File.jsx'
 import NavBar from '../Components/NavBar.jsx'
+import NavFile from '../Components/NavFile.jsx'
 
 import {
     Link
@@ -113,7 +114,7 @@ export default class Index extends React.Component {
     render() {
         var open_files = []
         for (var i of this.state.open_files) {
-            open_files.push(<div style={{display: 'flex', marginTop : '10px'}}><File text={i} /><i className="clear material-icons" onClick={this.remove_file}>clear</i></div>)
+            open_files.push(<div style={{display: 'flex', marginTop : '10px'}}><NavFile text={i} /><i className="clear material-icons" onClick={this.remove_file}>clear</i></div>)
         }
 
         return (
@@ -124,26 +125,7 @@ export default class Index extends React.Component {
                           
                 </NavBar>
                 <div id="leftside">
-                    <Folder className="section spaceclear" id="sectionfield" text="Project Hogwarts" structure={this.state.file_structure} fileOnClick={this.double}>
-                        {/* <Folder  text="app">
-                            <Folder text="app">
-                                <File onClick={this.double} text="index.html"/>
-                                <File onClick={this.double} text="index.js"/>
-                                <Folder text="app">
-                                    <File onClick={this.double} text="index.css"/>
-                                    <Folder text="app">
-                                        <File onClick={this.double} text="index.jsx"/>
-                                        <Folder text="app">
-                                            <File  onClick={this.double} text="index.py"/>
-                                            <Folder text="app">
-                                                <File  onClick={this.double} text="index.c"/>
-                                            </Folder>
-                                        </Folder>
-                                    </Folder>
-                                </Folder>
-                            </Folder>
-                        </Folder> */}
-                    </Folder>
+                    <Folder className="section spaceclear" id="sectionfield" text="Project Hogwarts" structure={this.state.file_structure} fileOnClick={this.double} />
                 </div>
                 <div>
                     <AceEditor 

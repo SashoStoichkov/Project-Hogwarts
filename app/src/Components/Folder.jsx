@@ -20,7 +20,7 @@ export default class Folder extends React.Component {
     }
     drop(ev) {
         ev.preventDefault();
-        var data = ev.dataTransfer.getData("div");
+        var data = ev.dataTransfer.getData("text");
         ev.target.appendChild(document.getElementById(data));
     }
     allowDrop(ev) {
