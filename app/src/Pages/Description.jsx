@@ -46,19 +46,30 @@ export default class Descript extends React.Component{
                         <Cell col={2}></Cell>
                         <Cell col={4}>
                             <Card shadow={4}  style={{width: '100%', height: '100%'}}>
-                                <CardTitle>Добре дошли!</CardTitle>
+                                <CardTitle className='animated fadeInRight'>Добре дошли!</CardTitle>
                                 <CardText style={{textAlign: 'center'}}>
-                                    Здравейте! На път сте да си свалите нещо, което ще промени изцяло представите Ви за кодов редактор!
+                                    Здравейте! На път сте да си свалите нещо, 
+                                    което ще промени изцяло представите Ви за кодов редактор!
                                     <br/>
-                                    Преставяме на Вашето внимание - <strong>CodeHub</strong>
+                                    <br/>                                    
+                                    Преставяме на Вашето внимание - <strong>CodeHub</strong>!!!
                                     <br/>
-                                    
+                                    <br/>                                    
+                                    С това <strong>уникално</strong> WEB приложение, Вие и Вашите <br/> колеги/съученици/състуденти ще можете да работите върху някой Ваш технологичен проект.
+                                    <br/>
+                                    <br/>                                    
+                                    Други позитиви на CodeHub са, че когато някой прави промени по даден файл, 
+                                    всички останали в екипа виждат промяната в реално време, качва ги на сървър и 
+                                    може да се използва вградения от екипа на <strong>Project Hogwarts</strong> терминал.
+                                    <br/>
+                                    <br/>
+                                    Свалете WEB приложението <strong>СЕГА</strong>!!!
                                 </CardText>
                             </Card>
                         </Cell>
                         <Cell col={4}>
                             <Card shadow={4} style={{width: '600px', height: '100%'}}>
-                                <CardTitle>Екипът:</CardTitle>
+                                <CardTitle className='animated fadeInLeft'>Екипът:</CardTitle>
                                 <CardImage height="335px" url={thumbnail}/>
                                 <CardText>
                                     <List>
