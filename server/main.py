@@ -38,6 +38,18 @@ def db(f):
     
     return wrap
 
+
+def get_folder_structure(dir_name):
+    with os.scandir(dir_name) as dir:
+        retval = {}
+        for entry in dir:
+            if entry.is_file():
+                retval[entry.name] = 'file'
+            else:
+                retval[entry.name] = get_folder_structure('{0}/{1}'.format(dir_name, entry.name))
+
+        return retval
+
 @app.route('/')
 def index():
     return render_template('test.html')
@@ -104,10 +116,7 @@ def add_key():
 
 @app.route('/get_filesystem/', methods=['POST'])
 def get_filesystem():
-    tree = {}
-    for path, dirnames, filenames in os.walk('project'):
-        #TODO make tree structure
-        pass
+    return jsonify(get_folder_structure('./project'))
 
 if __name__ == "__main__":
     app.run(debug=True)
