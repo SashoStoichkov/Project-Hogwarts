@@ -170,10 +170,22 @@ def create_folder(data):
     emit('update_fs', tree, broadcast=True)
 
 @io.on('delete', namespace='/edit')
-def delete_file(data):
+def delete(data):
     path = data['path']
 
     shutil.rmtree(path)
+
+    tree = get_folder_structure('./project')
+
+    emit('update_fs', tree, broadcast=True)
+
+@io.on('rename', namespace='/edit')
+def rename(data):
+    path = data['path']
+    old_name = data['old_name']
+    new_name = data['new_name']
+
+    os.rename("{0}/{1}".format(path, old_name), "{0}/{1}".format(path, new_name))
 
     tree = get_folder_structure('./project')
 
