@@ -155,8 +155,6 @@ def create_file(data):
         f.write(' ')
     
     tree = get_folder_structure('./project')
-
-    print("Path: ", path)
     
     emit('update_fs', tree, broadcast=True)
 
@@ -175,7 +173,10 @@ def create_folder(data):
 def delete(data):
     path = data['path']
 
-    shutil.rmtree(path)
+    try:
+        shutil.rmtree(path)
+    except NotADirectoryError:
+        os.remove(path)
 
     tree = get_folder_structure('./project')
 
@@ -184,10 +185,9 @@ def delete(data):
 @io.on('rename', namespace='/edit')
 def rename(data):
     path = data['path']
-    old_name = data['old_name']
     new_name = data['new_name']
 
-    os.rename("{0}/{1}".format(path, old_name), "{0}/{1}".format(path, new_name))
+    os.rename(path, "{0}/{1}".format("/".join(path.split('/')[:-1]), new_name))
 
     tree = get_folder_structure('./project')
 

@@ -116,7 +116,7 @@ export default class Index extends React.Component {
             open_files: [],
             file_structure: {},
             icon: "keyboard_arrow_right",
-            display: "initial",
+            show_folder: true,
         }
         
         this.updateCode = this.updateCode.bind(this)
@@ -128,10 +128,13 @@ export default class Index extends React.Component {
 
         this.new_file = this.new_file.bind(this)
         this.new_folder = this.new_folder.bind(this)
+        this.delete_obj = this.delete_obj.bind(this)
+        this.rename_obj = this.rename_obj.bind(this)
     }
+
     toggle(){
         this.setState({
-            display: this.state.display == 'none' ? 'block' : 'none',
+            display: !this.state.display,
             icon: this.state.icon == 'keyboard_arrow_right' ? 'keyboard_arrow_left' : 'keyboard_arrow_right',
         })
     }
@@ -233,6 +236,20 @@ export default class Index extends React.Component {
         })
     }
 
+    delete_obj(path) {
+        this.ws.emit('delete', {
+            path: path
+        })
+    }
+
+    rename_obj(path) {
+        const new_name = window.prompt('New name:')
+        this.ws.emit('rename', {
+            path: path,
+            new_name: new_name
+        })
+    }
+
     render() {
         var open_files = []
         console.log(this.state.open_files)
@@ -253,17 +270,21 @@ export default class Index extends React.Component {
                           
                 </NavBar>
                 <div id="leftside">
-                    <Folder 
-                        style={{display : this.state.display}} 
-                        className="section spaceclear" 
-                        id="sectionfield" 
-                        text="Project Hogwarts" 
-                        structure={this.state.file_structure} 
-                        fileOnClick={this.open_file} 
-                        path="./project"
-                        new_file={this.new_file}
-                        new_folder={this.new_folder}
-                    />
+                    { this.state.show_folder &&
+                        <Folder
+                            className="section spaceclear" 
+                            id="sectionfield" 
+                            text="Project Hogwarts" 
+                            structure={this.state.file_structure} 
+                            fileOnClick={this.open_file} 
+                            path="./project"
+
+                            new_file={this.new_file}
+                            new_folder={this.new_folder}
+                            delete={this.delete_obj}
+                            rename={this.rename_obj}
+                        />
+                    }
                 </div>
                 <div>
                     <div id="bglogo">
@@ -281,7 +302,7 @@ export default class Index extends React.Component {
                             ref="editor"
                         />
                     </div>
-                    <iframe src="https://project-hogwarts.ht.cloudbalkan.com:4200/" id="terminal"  >
+                    <iframe src="https://project-hogwarts.ht.cloudbalkan.com:4200/" id="terminal">
                         <p>Your browser does not support iframes.</p>
                     </iframe>
                 </div>

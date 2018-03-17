@@ -6,7 +6,7 @@ import { ContextMenu, Item, Separator, Submenu, ContextMenuProvider } from 'reac
 import 'react-contexify/dist/ReactContexify.min.css';
 
 const FolderMenu = (props) => (
-    <ContextMenu id='folder_id'>
+    <ContextMenu id={props.id}>
        <Item onClick={props.new_file}>New file</Item>
        <Item onClick={props.new_folder}>New folder</Item>
        <Separator />
@@ -42,7 +42,6 @@ export default class Folder extends React.Component {
     render() {
         var children = []
 
-        console.log(this.props.structure)
         if (this.state.open) {
             for (var i in this.props.structure) {
                 if (this.props.structure[i].type === 'file') {
@@ -73,9 +72,12 @@ export default class Folder extends React.Component {
                 }
             }
         }
+
+        console.log(this.props)
+
         return (
             <div id="menu_id" onDragOver={this.allowDrop} onDrop={this.drop} className={"space " + this.props.className} style={this.props.style}>
-                <ContextMenuProvider id="folder_id">
+                <ContextMenuProvider id={this.props.path}>
                     <div onClick={this.toggle} className="folder" id={this.props.id}>
                         <i className="material-icons">{this.state.icon}</i>
                         <p className="sectiontext">{this.props.text}</p>
@@ -86,6 +88,7 @@ export default class Folder extends React.Component {
                     delete={() => this.props.delete(this.props.path)}
                     new_file={() => this.props.new_file(this.props.path)}
                     new_folder={() => this.props.new_folder(this.props.path)}
+                    id={this.props.path}
                 />
                 {children}
             </div>
