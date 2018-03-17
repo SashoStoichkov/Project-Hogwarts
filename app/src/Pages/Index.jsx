@@ -305,7 +305,7 @@ export default class Index extends React.Component {
                         <img src={bglogo} />
                     }
                     </div>
-                    <iframe src="https://project-hogwarts.ht.cloudbalkan.com:4200/" id="terminal">
+                    <iframe src={"https://" + window.location.hostname +".com:4200/"} id="terminal">
                         <p>Your browser does not support iframes.</p>
                     </iframe>
                 </div>
