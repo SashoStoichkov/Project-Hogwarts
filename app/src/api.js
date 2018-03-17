@@ -29,5 +29,19 @@ export default {
         } else {
             error(resp)
         }
+    }),
+
+    get_folder_structure: (success, error) => fetch(
+        'http://project-hogwarts.ht.cloudbaklan/get_folder_structure',
+        {
+            method: "POST",
+            mode: 'cors'
+        }
+    ).then(resp => resp.json()).then(resp => {
+        if (resp.code === "1") {
+            success(resp)
+        } else {
+            error(resp)
+        }
     })
 }

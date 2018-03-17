@@ -116,7 +116,14 @@ def add_key():
 
 @app.route('/get_filesystem/', methods=['POST'])
 def get_filesystem():
-    return jsonify(get_folder_structure('./project'))
+    tree = get_folder_structure('./project')
+
+    retval = {
+        'code': '1',
+        'tree': tree
+    }
+
+    return jsonify(retval)
 
 if __name__ == "__main__":
     app.run(debug=True)
