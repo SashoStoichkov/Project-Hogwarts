@@ -9,16 +9,16 @@
 
 body, html{
     background: black;  
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
+
     margin: 0;
     font-family: roboto;
     overflow:hidden;
 }
 #description{
-    background-color:initial;
-    background-image: url("./Images/sierra_original.jpg")
+    background-image: url("./Images/sierra_original.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 #leftside{
     font-size:0;

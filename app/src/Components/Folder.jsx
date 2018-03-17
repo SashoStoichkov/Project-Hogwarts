@@ -2,6 +2,19 @@ import React from 'react'
 
 import File from './File'
 
+import { ContextMenu, Item, Separator, Submenu, ContextMenuProvider } from 'react-contexify';
+import 'react-contexify/dist/ReactContexify.min.css';
+
+const FolderMenu = () => (
+    <ContextMenu id='folder_id'>
+       <Item>New file</Item>
+       <Item>New folder</Item>
+       <Separator />
+       <Item>Rename</Item>
+       <Item>Delete</Item>
+    </ContextMenu>
+);
+
 export default class Folder extends React.Component {
     toggle(){
         this.setState({
@@ -44,11 +57,14 @@ export default class Folder extends React.Component {
             }
         }
         return (
-            <div onDragOver={this.allowDrop} onDrop={this.drop} className={"space " + this.props.className} style={this.props.style}>
-                <div onClick={this.toggle} className="folder" id={this.props.id}>
-                    <i className="material-icons">{this.state.icon}</i>
-                    <p className="sectiontext">{this.props.text}</p>
-                </div>
+            <div id="menu_id" onDragOver={this.allowDrop} onDrop={this.drop} className={"space " + this.props.className} style={this.props.style}>
+                <ContextMenuProvider id="folder_id">
+                    <div onClick={this.toggle} className="folder" id={this.props.id}>
+                        <i className="material-icons">{this.state.icon}</i>
+                        <p className="sectiontext">{this.props.text}</p>
+                    </div>
+                </ContextMenuProvider>
+                <FolderMenu />
                 {children}
             </div>
         )

@@ -214,7 +214,7 @@ export default class Index extends React.Component {
                 <NavFileContainer open_file={this.open_file} remove_file={this.remove_file} filename={i.filename} path={i.path}/>
             ))
         }
-            
+        
         return (
             <div>
                 <NavBar>

@@ -49,7 +49,10 @@ export default class Descript extends React.Component{
                             <Card shadow={4}  style={{width: '100%', height: '100%'}}>
                                 <CardTitle>Добре дошли!</CardTitle>
                                 <CardText style={{textAlign: 'center'}}>
-                                    
+                                    Здравейте! На път сте да си свалите нещо, което ще промени изцяло представите Ви за кодов редактор!
+                                    <br/>
+                                    Преставяме на Вашето внимание - <strong>CodeHub</strong>
+                                    <br/>
                                 </CardText>
                             </Card>
                         </Cell>
