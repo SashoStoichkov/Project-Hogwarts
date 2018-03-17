@@ -43,15 +43,17 @@ def db(f):
 
 def get_folder_structure(dir_name):
     with os.scandir(dir_name) as dir:
-        retval = {
-            '$path$': './project'
-        }
+        retval = {}
         for entry in dir:
             if entry.is_file():
-                retval[entry.name] = 'file'
+                retval[entry.name] = {}
+                retval[entry.name]['type'] = 'file'
+                retval[entry.name]['path'] = "{0}/{1}".format(dir_name, entry.name)
             else:
-                retval[entry.name] = get_folder_structure('{0}/{1}'.format(dir_name, entry.name))
-                retval[entry.name]['$path$'] = '{0}/{1}'.format(dir_name, entry.name)
+                retval[entry.name] = {}
+                retval[entry.name]['type'] = 'folder'
+                retval[entry.name]['content'] = get_folder_structure('{0}/{1}'.format(dir_name, entry.name))
+                retval[entry.name]['path'] = '{0}/{1}'.format(dir_name, entry.name)
 
         return retval
 
@@ -136,10 +138,12 @@ def get_file_content():
     rv = {
         'code': '1'
     }
-    with open('./' + path) as f:
+    if './' not in path:
+        pass
+    with open(path) as f:
         rv['data'] = f.read()
     
-    return rv
+    return jsonify(rv)
 
 @io.on('update', namespace="/edit")
 def update_code(data):
@@ -150,6 +154,8 @@ def update_code(data):
         'code': code,
         'file': filename
     }
+
+    print(filename, code)
 
     with open('./' + filename, 'w') as f:
         f.write(code)
