@@ -163,4 +163,4 @@ def update_code(data):
     emit('update', rv, broadcast=True)
 
 if __name__ == "__main__":
-    io.run(app, debug=True)
+    io.run(app, debug=True, host="0.0.0.0")
