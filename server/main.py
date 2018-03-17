@@ -59,7 +59,7 @@ def get_folder_structure(dir_name):
 
 @app.route('/')
 def index():
-    return render_template('test.html')
+    return render_template('index.html')
 
 @app.route('/login', methods=['POST'])
 @db
