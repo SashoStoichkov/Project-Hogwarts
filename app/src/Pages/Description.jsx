@@ -8,10 +8,8 @@ import{
     Card,
     CardTitle,
     CardText,
-    CardActions,
-    Button,
-    CardMenu,
-    IconButton
+    Grid,
+    Cell
 } from 'react-mdl'
 
 import 'react-mdl/extra/css/material.blue-pink.min.css'
@@ -34,6 +32,19 @@ export default class Descript extends React.Component{
                     </span>
                 }>
                 </Header>
+                <Content>
+                    <Grid>
+                        <Cell col={3}></Cell>
+                        <Cell col={6}>
+                            <Card shadow={4}  style={{width: '100%', height: '100%'}}>
+                                <CardTitle>Добре дошли!</CardTitle>
+                                <CardText>
+                                    
+                                </CardText>
+                            </Card>
+                        </Cell>
+                    </Grid>
+                </Content>
             </Layout>
         )
     }
