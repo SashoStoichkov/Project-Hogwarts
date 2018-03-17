@@ -1,6 +1,6 @@
 export default {
     login: (data, success, error) => fetch(
-        'http://project-hogwarts.ht.cloudbalkan.com/login',
+        'http://'+ window.location.hostname + ':5000/login',
         {
             method: 'POST',
             body: data,
@@ -17,7 +17,7 @@ export default {
     }),
 
     register: (data, success, error) => fetch(
-        'http://project-hogwarts.ht.cloudbalkan.com/register',
+        'http://'+ window.location.hostname + ':5000/register',
         {
             method: "POST",
             body: data,
@@ -29,5 +29,37 @@ export default {
         } else {
             error(resp)
         }
-    })
+    }),
+
+    get_folder_structure: (success, error) => fetch(
+        'http://' + window.location.hostname + ':5000/get_filesystem',
+        {
+            method: "POST",
+            mode: 'cors'
+        }
+    ).then(resp => resp.json()).then(resp => {
+        if (resp.code === "1") {
+            success(resp)
+        } else {
+            error(resp)
+        }
+    }),
+
+    get_file_content: (path, success, error) => {
+        var form_data = new FormData()
+        form_data.append('path', path)
+        fetch('http://' + window.location.hostname + ':5000/get_file_content',
+            {
+                method:'POST',
+                body: form_data,
+                mode: 'cors'
+            }
+        ).then(resp => resp.json()).then(resp => {
+            if (resp.code === "1") {
+                success(resp)
+            } else {
+                error(resp)
+            }
+        })
+    }
 }
