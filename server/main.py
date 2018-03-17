@@ -11,6 +11,7 @@ import sqlite3
 from functools import wraps
 
 import os
+import shutil
 import json
 
 app = Flask(__name__)
@@ -163,6 +164,16 @@ def create_folder(data):
     name = data['name']
 
     os.mkdir("{0}/{1}".format(path, name))
+
+    tree = get_folder_structure('./project')
+
+    emit('update_fs', tree, broadcast=True)
+
+@io.on('delete', namespace='/edit')
+def delete_file(data):
+    path = data['path']
+
+    shutil.rmtree(path)
 
     tree = get_folder_structure('./project')
 
