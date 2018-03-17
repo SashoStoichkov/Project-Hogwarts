@@ -107,6 +107,8 @@ def register():
         sha256.encrypt(passwd)
     ))
 
+    c.execute('delete from keys where key = ?', (key, ))
+
     conn.commit()
 
     return jsonify(code="1")

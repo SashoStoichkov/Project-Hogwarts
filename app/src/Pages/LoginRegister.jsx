@@ -3,13 +3,16 @@ import Textfield from '../Components/Textfield.jsx';
 
 import {GotoLogin, GotoRegister} from "../LoginRegister.js"
 
+import {Redirect} from 'react-router-dom'
+
 import api from '../api'
 
 export default class LoginRegister extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            passwd: ''
+            passwd: '',
+            ready: false
         }
 
         this.register = this.register.bind(this)
@@ -18,11 +21,13 @@ export default class LoginRegister extends React.Component {
     }
 
     register(e) {
+        e.preventDefault()
         api.register(new FormData(e.target), () => {}, (err) => {})
     }
 
     login(e) {
-        api.login(new FormData(e.target), () => {}, () => {})
+        e.preventDefault()
+        api.login(new FormData(e.target), () => this.setState({ready: true}), () => {})
     }
 
     setPasswd(e) {
@@ -32,6 +37,9 @@ export default class LoginRegister extends React.Component {
     }
 
     render() {
+        if (this.state.ready) {
+            return <Redirect to="/code" />
+        }
         return (
             <div id="description">   
                 <div id="login_permition">
@@ -59,16 +67,15 @@ export default class LoginRegister extends React.Component {
                 <div id="register_permition">
                     <div className=" main_register">
                         <div style={{width: "100%", height: "100%"}} className=" animated fadeIn card">
-                            <form action="/register" method="POST">
+                            <form action="/register" method="POST" onSubmit={this.register}>
                                 <div className="title">
                                     Register
                                 </div>
                                 <div className="body">
-                                    <Textfield holder="Username" type="text" />
-                                    <Textfield holder="E-Mail" type="email" />
-                                    <Textfield holder="Password" type="password" />
-                                    <Textfield holder="Confirm password" type="password" />
-                                    <Textfield holder="Key" type="password" />
+                                    <Textfield holder="Username" type="text" name='uname' />
+                                    <Textfield holder="Password" type="password" name="passwd" onInput={this.setPasswd} value={this.state.passwd} />
+                                    <Textfield holder="Confirm password" type="password" pattern={this.state.passwd} />
+                                    <Textfield holder="Key" type="password" name="key" />
                                     <button type="submit" className="submit">Register</button>
                                 </div>
                             </form>

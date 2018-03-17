@@ -8,7 +8,8 @@ import NavFile from '../Components/NavFile.jsx'
 import NavFileContainer from '../Components/NavFileContainer.jsx'
 
 import {
-    Link
+    Link,
+    Redirect
 } from 'react-router-dom'
 
 import bglogo from "../Images/bg_editor.png"
@@ -119,7 +120,6 @@ export default class Index extends React.Component {
             show_folder: true,
         }
         
-        this.updateCode = this.updateCode.bind(this)
         this.updateCode = this.updateCode.bind(this)
         this.open_file = this.open_file.bind(this)
         this.remove_file = this.remove_file.bind(this)
@@ -252,6 +252,9 @@ export default class Index extends React.Component {
     }
 
     render() {
+        if (!sessionStorage.getItem('logged_in')) {
+            return <Redirect to='/' />
+        }
         var open_files = []
         console.log(this.state.open_files)
         for (var i of this.state.open_files) {
