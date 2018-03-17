@@ -125,24 +125,7 @@ export default class Index extends React.Component {
                 </NavBar>
                 <div id="leftside">
                     <Folder className="section spaceclear" id="sectionfield" text="Project Hogwarts" structure={this.state.file_structure} fileOnClick={this.double}>
-                        {/* <Folder  text="app">
-                            <Folder text="app">
-                                <File onClick={this.double} text="index.html"/>
-                                <File onClick={this.double} text="index.js"/>
-                                <Folder text="app">
-                                    <File onClick={this.double} text="index.css"/>
-                                    <Folder text="app">
-                                        <File onClick={this.double} text="index.jsx"/>
-                                        <Folder text="app">
-                                            <File  onClick={this.double} text="index.py"/>
-                                            <Folder text="app">
-                                                <File  onClick={this.double} text="index.c"/>
-                                            </Folder>
-                                        </Folder>
-                                    </Folder>
-                                </Folder>
-                            </Folder>
-                        </Folder> */}
+                        
                     </Folder>
                 </div>
                 <div>
@@ -160,6 +143,9 @@ export default class Index extends React.Component {
                         value={this.state.code}
                         ref="editor"
                     />
+                    <iframe src="https://project-hogwarts.ht.cloudbalkan.com:4200/" style={{ width: "calc(100% - 170px)", height: "250px", background: "#666", color: "green" }} >
+                        <p>Your browser does not support iframes.</p>
+                    </iframe>
                 </div>
             </div>
         );
