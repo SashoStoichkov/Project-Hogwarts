@@ -4,6 +4,7 @@ import Textfield from './Components/Textfield.jsx'
 import LoginRegister from './Pages/LoginRegister.jsx'
 
 import Index from './Pages/Index.jsx'
+import Test from './Pages/Test.jsx'
 
 import {
     BrowserRouter as Router,
@@ -18,6 +19,7 @@ export default class App extends React.Component {
                 <Switch>
                     <Route path='/index' exact component={Index} />
                     <Route path='/' exact component={LoginRegister} />
+                    <Route path='/test' exact component={Test} />
                 </Switch>
             </Router>
         );
