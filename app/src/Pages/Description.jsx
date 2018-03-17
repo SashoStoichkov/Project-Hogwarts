@@ -5,6 +5,11 @@ import{
     Header,
     Navigation,
     Content,
+    Grid,
+    Cell,
+    Card,
+    CardTitle,
+    CardText
 } from 'react-mdl'
 
 import 'react-mdl/extra/css/material.blue-pink.min.css'
@@ -21,19 +26,26 @@ export default class Descript extends React.Component{
         return(
             <Layout>
                 <Header transparent title={
-                    <span style={{display : 'flex'}} >
+                    <span  className="animated jackInTheBox" style={{display : 'flex'}} >
                         <img src={logo} width="40" height="40" alt="icon_logo" />
                         <span style={{display : 'flex', marginTop: '8px'}}>odeHub</span>
                     </span>
                 }>
-                    
-                    <Navigation>
-                        <Link to="#">LogIn/Register</Link>
-                        <Link to="#">Code Editor</Link>
-                        <Link to="#">For Us</Link>
-                    </Navigation>
                 </Header>
-                <Content />
+                <Content>
+                    <Grid>
+                        <Cell col={1}></Cell>
+                        <Cell col={4}>
+                            <Card shadow={0}>
+                                <CardTitle>Welcome</CardTitle>
+                                <CardText>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Mauris sagittis pellentesque lacus eleifend lacinia...
+                                </CardText>
+                            </Card>
+                        </Cell>
+                    </Grid>
+                </Content>
             </Layout>
         )
     }
