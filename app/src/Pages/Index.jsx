@@ -139,13 +139,7 @@ export default class Index extends React.Component {
                           
                 </NavBar>
                 <div id="leftside">
-<<<<<<< HEAD
-                    <Folder className="section spaceclear" id="sectionfield" text="Project Hogwarts" structure={this.state.file_structure} fileOnClick={this.double}>
-                        
-                    </Folder>
-=======
                     <Folder className="section spaceclear" id="sectionfield" text="Project Hogwarts" structure={this.state.file_structure} fileOnClick={this.double} path="" />
->>>>>>> f557e2dbd4e7f0c0597d70051625a40a6dafba7f
                 </div>
                 <div>
                     <AceEditor 
