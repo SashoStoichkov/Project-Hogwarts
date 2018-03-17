@@ -10,7 +10,15 @@ import{
     CardText,
     Grid,
     Cell,
-    Button
+    Button,
+    List,
+    ListItem,
+    ListItemContent,
+    ListItemAction,
+    Icon,
+    Footer,
+    FooterSection,
+    FooterLinkList
 } from 'react-mdl'
 
 import 'react-mdl/extra/css/material.blue-pink.min.css'
@@ -42,7 +50,7 @@ export default class Descript extends React.Component{
                         <Cell col={6}>
                             <Card shadow={4}  style={{width: '100%', height: '100%'}}>
                                 <CardTitle>Добре дошли!</CardTitle>
-                                <CardText>
+                                <CardText style={{textAlign: 'center'}}>
                                     
                                 </CardText>
                             </Card>
