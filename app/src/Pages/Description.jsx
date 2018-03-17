@@ -34,9 +34,9 @@ export default class Descript extends React.Component{
                 </Header>
                 <Content>
                     <Grid>
-                        <Cell col={1}></Cell>
-                        <Cell col={4}>
-                            <Card shadow={0}>
+                        <Cell col={3}></Cell>
+                        <Cell col={6}>
+                            <Card shadow={4}  style={{width: '100%', height: '100%'}}>
                                 <CardTitle>Welcome</CardTitle>
                                 <CardText>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
