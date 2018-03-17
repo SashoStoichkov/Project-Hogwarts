@@ -17,7 +17,7 @@ import{
     
 } from 'react-mdl'
 
-import thumbnail from "../Images/logo35.png"
+import thumbnail from "../Images/team.png"
 import CardImage from '../Components/CardImage.jsx'
 import 'react-mdl/extra/css/material.blue-pink.min.css'
 import 'react-mdl/extra/material.js'
@@ -54,7 +54,7 @@ export default class Descript extends React.Component{
                             </Card>
                         </Cell>
                         <Cell col={4}>
-                            <Card shadow={4}  style={{width: '100%', height: '100%'}}>
+                            <Card shadow={4}  style={{width: '600px', height: '100%'}}>
                                 <CardTitle>Екипът:</CardTitle>
                                 <CardImage height="335px" url={thumbnail} />
                                 <CardText>
