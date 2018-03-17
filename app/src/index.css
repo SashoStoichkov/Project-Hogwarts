@@ -96,7 +96,7 @@ i{
 }
 #brace-editor{
     width:initial!important;
-    height:calc(100vh - 50px)!important;
+    height:calc(100vh - 300px)!important;
 }
 ::-webkit-scrollbar {
     width: 5px;
