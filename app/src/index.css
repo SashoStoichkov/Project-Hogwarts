@@ -24,7 +24,7 @@ body, html{
 }
 .section{
     color:white;
-    background-color: #696c72;
+    background-color: black;
     height: 100vh;
     overflow:auto;
 }
@@ -59,7 +59,6 @@ i{
 .sectioncontent{
     display:flex;
     cursor: pointer;
-    font-family: roboto;
     height: 30px;
     color:white;
     user-select:none;
@@ -103,17 +102,14 @@ i{
     width: 5px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
     background: #f1f1f1; 
 }
  
-/* Handle */
 ::-webkit-scrollbar-thumb {
     background: #2196F3; 
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #1778c4; 
 }
