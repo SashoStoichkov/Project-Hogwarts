@@ -11,8 +11,10 @@ import sqlite3
 from functools import wraps
 
 import os
+import json
 
 app = Flask(__name__)
+io = SocketIO(app)
 CORS(app)
 
 conn, c = None, None
@@ -41,12 +43,15 @@ def db(f):
 
 def get_folder_structure(dir_name):
     with os.scandir(dir_name) as dir:
-        retval = {}
+        retval = {
+            '$path$': './project'
+        }
         for entry in dir:
             if entry.is_file():
                 retval[entry.name] = 'file'
             else:
                 retval[entry.name] = get_folder_structure('{0}/{1}'.format(dir_name, entry.name))
+                retval[entry.name]['$path$'] = '{0}/{1}'.format(dir_name, entry.name)
 
         return retval
 
@@ -114,7 +119,7 @@ def add_key():
 
     return redirect('/')
 
-@app.route('/get_filesystem/', methods=['POST'])
+@app.route('/get_filesystem', methods=['POST'])
 def get_filesystem():
     tree = get_folder_structure('./project')
 
@@ -125,5 +130,31 @@ def get_filesystem():
 
     return jsonify(retval)
 
+@app.route('/get_file_content', methods=["POST"])
+def get_file_content():
+    path = request.form['path']
+    rv = {
+        'code': '1'
+    }
+    with open('./' + path) as f:
+        rv['data'] = f.read()
+    
+    return rv
+
+@io.on('update', namespace="/edit")
+def update_code(data):
+    filename = data['file']
+    code = data['code']
+
+    rv = {
+        'code': code,
+        'file': filename
+    }
+
+    with open('./' + filename, 'w') as f:
+        f.write(code)
+    
+    emit('update', rv, broadcast=True)
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    io.run(app, debug=True)

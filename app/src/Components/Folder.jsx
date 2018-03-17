@@ -28,15 +28,19 @@ export default class Folder extends React.Component {
     }
     render() {
         var children = []
+
+        console.log(this.props.structure)
         if (this.state.open) {
             for (var i in this.props.structure) {
-                if (this.props.structure[i] === 'file') {
+                if (i === "$path$") {
+
+                } else if (this.props.structure[i] === 'file') {
                     children.push((
-                        <File text={i} onClick={this.props.fileOnClick} />
+                        <File text={i} onClick={this.props.fileOnClick} path={this.props.path} />
                     ))
                 } else {
                     children.push((
-                        <Folder structure={this.props.structure[i]} text={i} fileOnClick={this.props.fileOnClick} />
+                        <Folder structure={this.props.structure[i]} text={i} fileOnClick={this.props.fileOnClick} path={this.props.structure['$path$']} />
                     ))
                 }
             }
