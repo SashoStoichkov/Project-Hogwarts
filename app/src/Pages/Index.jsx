@@ -19,10 +19,73 @@ import brace from 'brace'
 import 'brace/theme/monokai'
 import 'brace/mode/python'
 import 'brace/mode/javascript'
+import 'brace/mode/jsx'
+import 'brace/mode/c_cpp'
+import 'brace/mode/assembly_x86'
+import 'brace/mode/coffee'
+import 'brace/mode/csharp'
+import 'brace/mode/css'
+import 'brace/mode/golang'
+import 'brace/mode/groovy'
+import 'brace/mode/html'
+import 'brace/mode/java'
+import 'brace/mode/json'
+import 'brace/mode/less'
+import 'brace/mode/scss'
+import 'brace/mode/sql'
+import 'brace/mode/swift'
+import 'brace/mode/typescript'
 
 import logo from '../Images/logo.png'
 
 import api from '../api'
+
+function get_file_type(f_name) {
+    var ext = f_name.split('.').pop()
+    switch(ext){
+        case 'py': 
+            return 'python';
+        case 'js':
+            return 'javascript'
+        case 'jsx':
+            return 'jsx';
+        case 'c':
+        case 'cpp':
+        case 'cc':
+        case 'h':
+            return 'c_cpp';
+        case 'asm':
+            return 'assembly_x86';
+        case 'coffee':
+            return 'coffee';
+        case 'cs':
+            return 'csharp';
+        case 'css':
+            return 'css';
+        case 'go':
+            return 'golang';
+        case 'groovy':
+            return 'groovy';
+        case 'html':
+            return 'html';
+        case 'java':
+            return 'java';
+        case 'json':
+            return 'json';
+        case 'less':
+            return 'less';
+        case 'scss':
+            return 'scss';
+        case 'sql':
+            return 'sql';
+        case 'swift':
+            return 'swift';
+        case 'ts':
+            return 'typescript';
+        default:
+            return ''
+    }
+}
 
 export default class Index extends React.Component {
     constructor(props) {
@@ -154,7 +217,7 @@ export default class Index extends React.Component {
                 </div>
                 <div>
                     <AceEditor 
-                        mode="javascript"
+                        mode={get_file_type(this.state.file)}
                         theme="monokai"
                         fontSize={18}
                         showPrintMargin={false}
