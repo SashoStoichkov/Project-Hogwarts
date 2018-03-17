@@ -139,13 +139,14 @@ i{
 }
 #brace-editor{
     width:initial!important;
-    height: 76.5vh!important;
+    height: calc(100vh - 200px)!important;
+    
 }
 #terminal{
     width: 100%;
-
     background: white; 
-    
+    position: absolute;
+    bottom:0;
 }
 #sectionparent{
     background:black;
@@ -156,7 +157,7 @@ i{
     background-position: center;
     background-repeat: no-repeat;
 }
-@media screen and (min-width: 800px){
+@media screen and (min-width: 800px) and (min-height: 800px){
     #brace-editor{
         width:initial!important;
         height:calc(100vh - 300px)!important;
@@ -175,7 +176,7 @@ i{
         height: 250px;
         float:right;    
         background: white; 
-        
+        position: relative;;   
     }
     #logo{
         position:relative;
