@@ -33,23 +33,33 @@ export default class Index extends React.Component {
             if (data.file === this.state.file) {
                 this.setState({
                     code: data.code
+                    
                 })
             }
         })
-        
+
         this.state = {
             cursor_pos: {},
             code: "",
             file: "",
             open_files: [],
-            file_structure: {}
+            file_structure: {},
+            icon: "keyboard_arrow_right",
+            display: "none",
         }
-
+        
         this.updateCode = this.updateCode.bind(this)
         this.updateCode = this.updateCode.bind(this)
         this.open_file = this.open_file.bind(this)
         this.remove_file = this.remove_file.bind(this)
         this.setWorkingFile = this.setWorkingFile.bind(this)
+        this.toggle = this.toggle.bind(this)
+    }
+    toggle(){
+        this.setState({
+            display: this.state.display == 'none' ? 'block' : 'none',
+            icon: this.state.icon == 'keyboard_arrow_right' ? 'keyboard_arrow_left' : 'keyboard_arrow_right',
+        })
     }
 
     updateCode(newCode) {
@@ -134,16 +144,17 @@ export default class Index extends React.Component {
                 <NavFileContainer open_file={this.open_file} remove_file={this.remove_file} filename={i.filename} path={i.path}/>
             ))
         }
-
+            
         return (
             <div>
                 <NavBar>
+                    <i onClick={this.toggle} id="switch" class="material-icons">{this.state.icon}</i>
                     <img src={logo} id="logo"  className="animated pulse" alt="logo" />
                     {open_files}
                           
                 </NavBar>
                 <div id="leftside">
-                    <Folder className="section spaceclear" id="sectionfield" text="Project Hogwarts" structure={this.state.file_structure} fileOnClick={this.open_file} path="./project" />
+                    <Folder style={{display : this.state.display}} className="section spaceclear" id="sectionfield" text="Project Hogwarts" structure={this.state.file_structure} fileOnClick={this.open_file} path="./project" />
                 </div>
                 <div>
                     <AceEditor 

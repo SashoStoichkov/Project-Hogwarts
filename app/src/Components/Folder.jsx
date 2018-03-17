@@ -38,13 +38,13 @@ export default class Folder extends React.Component {
                     ))
                 } else {
                     children.push((
-                        <Folder structure={this.props.structure[i].content} text={i} fileOnClick={this.props.fileOnClick} path={this.props.structure[i].path} />
+                        <Folder style={this.props.style} structure={this.props.structure[i].content} text={i} fileOnClick={this.props.fileOnClick} path={this.props.structure[i].path} />
                     ))
                 }
             }
         }
         return (
-            <div onDragOver={this.allowDrop} onDrop={this.drop} className={"space " + this.props.className}>
+            <div onDragOver={this.allowDrop} onDrop={this.drop} className={"space " + this.props.className} style={this.props.style}>
                 <div onClick={this.toggle} className="folder" id={this.props.id}>
                     <i className="material-icons">{this.state.icon}</i>
                     <p className="sectiontext">{this.props.text}</p>

@@ -6,15 +6,9 @@
     font-family: 'roboto';
     src: url('./roboto/Roboto-Regular.ttf');
 }
-#logo{
-    position:relative;
-    width:200px;
-    height: 50px;
-    margin:0;
-    padding:0;
-}
+
 body, html{
-    background-image: url("./Images/sierra_original.jpg");
+    background: black;  
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -22,11 +16,9 @@ body, html{
     font-family: roboto;
     overflow:hidden;
 }
-.section{
-    color:white;
-    background-color: black;
-    height: 100vh;
-    overflow:auto;
+#description{
+    background-color:initial;
+    background-image: url("./Images/sierra_original.jpg")
 }
 #leftside{
     font-size:0;
@@ -94,10 +86,7 @@ i{
     background-color: grey;
     color: black;
 }
-#brace-editor{
-    width:initial!important;
-    height:calc(100vh - 300px)!important;
-}
+
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -130,9 +119,66 @@ i{
 .mdl-layout-title{
     font-size:30px!important;
 }
+
+#logo{
+    display:none;
+}
+.section{
+    color:white;
+    background-color: black;
+    overflow:auto;
+    display:none;
+}
+#switch{
+    font-size:40px;
+    color: white;
+    display:block;
+    cursor: pointer;
+    user-select: none;
+    outline:none;;
+}
+#brace-editor{
+    width:initial!important;
+    height: 76.5vh!important;
+}
 #terminal{
-    width: calc(100% - 170px);
-    height: 250px;
+    width: 100%;
+
     background: white; 
     
+}
+#sectionparent{
+    background:black;
+}
+
+@media screen and (min-width: 800px){
+    #brace-editor{
+        width:initial!important;
+        height:calc(100vh - 300px)!important;
+    }
+    #switch{
+        display:none;
+    }
+    .section{
+        color:white;
+        background-color: black;
+        display:block!important;
+        overflow:auto;
+    }
+    #terminal{
+        width: calc(100% - 170px);
+        height: 250px;
+        float:right;    
+        background: white; 
+        
+    }
+    #logo{
+        position:relative;
+        width:200px;
+        height: 50px;
+        margin:0;
+        padding:0;
+        display:block;
+    }
+   
 }
