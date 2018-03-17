@@ -11,6 +11,7 @@ import sqlite3
 from functools import wraps
 
 import os
+import shutil
 import json
 
 app = Flask(__name__)
@@ -144,6 +145,39 @@ def get_file_content():
         rv['data'] = f.read()
     
     return jsonify(rv)
+
+@io.on('create_file', namespace='/edit')
+def create_file(data):
+    path = data['path']
+    name = data['name']
+
+    with open('{0}/{1}'.format(path, name), 'w+') as f:
+        f.write('')
+    
+    tree = get_folder_structure('./project')
+    
+    emit('update_fs', tree, broadcast=True)
+
+@io.on('create_folder', namespace='/edit')
+def create_folder(data):
+    path = data['path']
+    name = data['name']
+
+    os.mkdir("{0}/{1}".format(path, name))
+
+    tree = get_folder_structure('./project')
+
+    emit('update_fs', tree, broadcast=True)
+
+@io.on('delete', namespace='/edit')
+def delete_file(data):
+    path = data['path']
+
+    shutil.rmtree(path)
+
+    tree = get_folder_structure('./project')
+
+    emit('update_fs', tree, broadcast=True)
 
 @io.on('update', namespace="/edit")
 def update_code(data):
