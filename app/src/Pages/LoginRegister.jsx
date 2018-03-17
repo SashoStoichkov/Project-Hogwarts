@@ -33,7 +33,7 @@ export default class LoginRegister extends React.Component {
 
     render() {
         return (
-            <div>   
+            <div id="description">   
                 <div id="login_permition">
                     <div className="main_login">
                         <div style={{width: "100%", height: "100%"}} className="animated fadeIn card">
@@ -81,6 +81,7 @@ export default class LoginRegister extends React.Component {
                         <div className="free"></div>
                     </div>
                 </div>
+                <p style={{marginTop : '100%'}}> </p>
             </div>
         );
     }
