@@ -5,13 +5,13 @@ import File from './File'
 import { ContextMenu, Item, Separator, Submenu, ContextMenuProvider } from 'react-contexify';
 import 'react-contexify/dist/ReactContexify.min.css';
 
-const FolderMenu = () => (
+const FolderMenu = (props) => (
     <ContextMenu id='folder_id'>
-       <Item>New file</Item>
-       <Item>New folder</Item>
+       <Item onClick={props.new_file}>New file</Item>
+       <Item onClick={props.new_folder}>New folder</Item>
        <Separator />
-       <Item>Rename</Item>
-       <Item>Delete</Item>
+       <Item onClick={props.rename}>Rename</Item>
+       <Item onClick={props.delete}>Delete</Item>
     </ContextMenu>
 );
 
@@ -47,11 +47,28 @@ export default class Folder extends React.Component {
             for (var i in this.props.structure) {
                 if (this.props.structure[i].type === 'file') {
                     children.push((
-                        <File text={i} onClick={this.props.fileOnClick} path={this.props.path} />
+                        <File 
+                            text={i} 
+                            onClick={this.props.fileOnClick} 
+                            path={this.props.path} 
+                            rename={this.props.rename} 
+                            delete={this.props.delete} 
+                        />
                     ))
                 } else {
                     children.push((
-                        <Folder style={this.props.style} structure={this.props.structure[i].content} text={i} fileOnClick={this.props.fileOnClick} path={this.props.structure[i].path} />
+                        <Folder 
+                            style={this.props.style} 
+                            structure={this.props.structure[i].content} 
+                            text={i} 
+                            fileOnClick={this.props.fileOnClick} 
+                            path={this.props.structure[i].path}
+
+                            rename={this.props.rename}
+                            delete={this.props.delete}
+                            new_file={this.props.new_file}
+                            new_folder={this.props.new_folder}
+                        />
                     ))
                 }
             }
@@ -64,7 +81,12 @@ export default class Folder extends React.Component {
                         <p className="sectiontext">{this.props.text}</p>
                     </div>
                 </ContextMenuProvider>
-                <FolderMenu />
+                <FolderMenu 
+                    rename={() => this.props.rename(this.props.path)}
+                    delete={() => this.props.delete(this.props.path)}
+                    new_file={() => this.props.new_file(this.props.path)}
+                    new_folder={() => this.props.new_folder(this.props.path)}
+                />
                 {children}
             </div>
         )

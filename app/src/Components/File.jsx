@@ -4,10 +4,10 @@ import fileIcons from 'file-icons-js';
 import { ContextMenu, Item, Separator, Submenu, ContextMenuProvider } from 'react-contexify';
 import 'react-contexify/dist/ReactContexify.min.css';
 
-const FileMenu = () => (
+const FileMenu = (props) => (
     <ContextMenu id='file_id'>
-       <Item>Rename</Item>
-       <Item>Delete</Item>
+       <Item onClick={props.rename}>Rename</Item>
+       <Item onClick={props.delete}>Delete</Item>
     </ContextMenu>
 );
 
@@ -19,7 +19,6 @@ export default class File extends React.Component {
     }
 
     onClick(e) {
-        console.log("onClick Event fired")
         this.props.onClick(this.props.path, this.props.text)
     }
     
@@ -32,7 +31,7 @@ export default class File extends React.Component {
                         <p className="sectiontext">{this.props.text}</p>
                     </div>
                 </ContextMenuProvider>
-                <FileMenu />
+                <FileMenu rename={this.props.rename} delete={this.props.delete} />
             </div>  
         )
     }

@@ -152,9 +152,11 @@ def create_file(data):
     name = data['name']
 
     with open('{0}/{1}'.format(path, name), 'w+') as f:
-        f.write('')
+        f.write(' ')
     
     tree = get_folder_structure('./project')
+
+    print("Path: ", path)
     
     emit('update_fs', tree, broadcast=True)
 
