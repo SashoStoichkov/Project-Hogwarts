@@ -72,7 +72,7 @@ export default class Index extends React.Component {
     }
 
     open_file(path, name, add_new){
-        console.log(add_new)
+        add_new = add_new ? add_new : true
         api.get_file_content(path+'/'+name, resp => {
             if (add_new) {
                 this.setState({
@@ -128,6 +128,7 @@ export default class Index extends React.Component {
 
     render() {
         var open_files = []
+        console.log(this.state.open_files)
         for (var i of this.state.open_files) {
             open_files.push((
                 <NavFileContainer open_file={this.open_file} remove_file={this.remove_file} filename={i.filename} path={i.path}/>
