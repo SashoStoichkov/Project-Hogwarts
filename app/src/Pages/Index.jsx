@@ -291,8 +291,9 @@ export default class Index extends React.Component {
                     }
                 </div>
                 <div>
-                    <div id="bglogo">
-                    { this.state.file != '' ? <AceEditor 
+                    <div id="bglogo" style={{height: '100%'}}>
+                    { this.state.file &&
+                        <AceEditor 
                             mode={get_file_type(this.state.file)}
                             theme="monokai"
                             fontSize={18}
@@ -304,8 +305,7 @@ export default class Index extends React.Component {
                             onChange={this.updateCode}
                             value={this.state.code}
                             ref="editor"
-                        /> :
-                        <img src={bglogo} />
+                        />
                     }
                     </div>
                     <iframe src={"https://" + window.location.hostname +".com:4200/"} id="terminal">
