@@ -308,7 +308,7 @@ export default class Index extends React.Component {
                         />
                     }
                     </div>
-                    <iframe src={"https://" + window.location.hostname +".com:4200/"} id="terminal">
+                    <iframe src={"https://" + window.location.hostname +":4200/"} id="terminal">
                         <p>Your browser does not support iframes.</p>
                     </iframe>
                 </div>
