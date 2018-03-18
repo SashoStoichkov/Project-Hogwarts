@@ -291,7 +291,7 @@ export default class Index extends React.Component {
                     }
                 </div>
                 <div>
-                    <div id="bglogo" style={{height: '100%'}}>
+                    <div id="bglogo">
                     { this.state.file &&
                         <AceEditor 
                             mode={get_file_type(this.state.file)}
