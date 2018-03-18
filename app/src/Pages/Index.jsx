@@ -274,7 +274,7 @@ export default class Index extends React.Component {
                           
                 </NavBar>
                 <div id="leftside">
-                    { this.state.show_folder &&
+                    { this.state.show_folder ?
                         <Folder
                             className="section spaceclear" 
                             id="sectionfield" 
@@ -287,7 +287,7 @@ export default class Index extends React.Component {
                             new_folder={this.new_folder}
                             delete={this.delete_obj}
                             rename={this.rename_obj}
-                        />
+                        /> : null
                     }
                 </div>
                 <div>
