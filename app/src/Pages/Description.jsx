@@ -18,6 +18,7 @@ import{
 
 import thumbnail from "../Images/team.png"
 import CardImage from '../Components/CardImage.jsx'
+import CodeHub from "../Images/logo35.png"
 import 'react-mdl/extra/css/material.blue-pink.min.css'
 import 'react-mdl/extra/material.js'
 
@@ -64,7 +65,11 @@ export default class Descript extends React.Component{
                                     <br/>
                                     <br/>
                                     Свалете WEB приложението СЕГА!!!
+                                    <br/>
+                                    <br/>
+                                    <br/>                                    
                                 </CardText>
+                                <CardImage height="335px" url={CodeHub}/>
                             </Card>
                         </Cell>
                         <Cell col={4}>
