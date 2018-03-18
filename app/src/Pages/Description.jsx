@@ -18,6 +18,7 @@ import{
 
 import thumbnail from "../Images/team.png"
 import CardImage from '../Components/CardImage.jsx'
+import CodeHub from "../Images/logo35.png"
 import 'react-mdl/extra/css/material.blue-pink.min.css'
 import 'react-mdl/extra/material.js'
 
@@ -52,19 +53,20 @@ export default class Descript extends React.Component{
                                     което ще промени изцяло представите Ви за кодов редактор!
                                     <br/>
                                     <br/>                                    
-                                    Преставяме на Вашето внимание - <strong>CodeHub</strong>!!!
+                                    Преставяме на Вашето внимание - CodeHub!!!
                                     <br/>
                                     <br/>                                    
-                                    С това <strong>уникално</strong> WEB приложение, Вие и Вашите <br/> колеги/съученици/състуденти ще можете да работите върху някой Ваш технологичен проект.
+                                    С това уникално WEB приложение, Вие и Вашите <br/> колеги/съученици/състуденти ще можете да работите върху някой Ваш технологичен проект.
                                     <br/>
                                     <br/>                                    
                                     Други позитиви на CodeHub са, че когато някой прави промени по даден файл, 
                                     всички останали в екипа виждат промяната в реално време, качва ги на сървър и 
-                                    може да се използва вградения от екипа на <strong>Project Hogwarts</strong> терминал.
+                                    може да се използва вградения от екипа на Project Hogwarts терминал.
                                     <br/>
                                     <br/>
-                                    Свалете WEB приложението <strong>СЕГА</strong>!!!
+                                    Свалете WEB приложението СЕГА!!!
                                 </CardText>
+                                <CardImage height="335px" url={CodeHub}/>
                             </Card>
                         </Cell>
                         <Cell col={4}>
