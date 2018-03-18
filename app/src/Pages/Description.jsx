@@ -65,6 +65,9 @@ export default class Descript extends React.Component{
                                     <br/>
                                     <br/>
                                     Свалете WEB приложението СЕГА!!!
+                                    <br/>
+                                    <br/>
+                                    <br/>                                    
                                 </CardText>
                                 <CardImage height="335px" url={CodeHub}/>
                             </Card>
