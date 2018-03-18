@@ -48,7 +48,7 @@ export default class Descript extends React.Component{
                         <Cell col={4}>
                             <Card shadow={4}  style={{width: '100%', height: '100%'}}>
                                 <CardTitle>Добре дошли!</CardTitle>
-                                <CardText style={{textAlign: 'center'}}>
+                                <CardText style={{textAlign: 'center', fontSize : '18px'}}>
                                     Здравейте! На път сте да си свалите нещо, 
                                     което ще промени изцяло представите Ви за кодов редактор!
                                     <br/>

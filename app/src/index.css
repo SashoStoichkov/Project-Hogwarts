@@ -156,6 +156,7 @@ i{
     background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
+    height: calc(100vh - 300px);
 }
 @media screen and (min-width: 800px) and (min-height: 800px){
     #brace-editor{
