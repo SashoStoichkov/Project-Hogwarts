@@ -1,1 +1,4 @@
- asdf
+function log() {
+    console.log('')
+}
+

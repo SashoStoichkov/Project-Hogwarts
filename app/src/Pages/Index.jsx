@@ -130,11 +130,25 @@ export default class Index extends React.Component {
         this.new_folder = this.new_folder.bind(this)
         this.delete_obj = this.delete_obj.bind(this)
         this.rename_obj = this.rename_obj.bind(this)
+
+        window.addEventListener('resize', e => {
+            if (e.target.innerWidth > 800) {
+                this.setState({
+                    show_folder:  true,
+                    icon: 'keyboard_arrow_right',
+                })
+            } else {
+                this.setState({
+                    show_folder: false,
+                    icon: 'keyboard_arrow_left',
+                })
+            }
+        })
     }
 
     toggle(){
         this.setState({
-            display: !this.state.display,
+            show_folder: !this.state.show_folder,
             icon: this.state.icon == 'keyboard_arrow_right' ? 'keyboard_arrow_left' : 'keyboard_arrow_right',
         })
     }
